@@ -2,20 +2,25 @@
 h1 {
   font-family: 'Helvetica';
   color: white;
+  /* color:rgb(255,255,255); */
   /* background-color: #333; */
   background-color: rebeccapurple;
-  padding: .5em;
+  padding: 1em;
 }
 
-p {
-  font-family: 'Arial';
-  font-size: 18px;
-}
+/* p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+} */
 
 img {
   max-height: 150px;
-  border-radius: 20px;
+  border-radius: 100px;
 }
+
+/* .highlighted { 
+  background-color: yellow;
+} */
 
 .centered {
   text-align: center;
@@ -31,9 +36,13 @@ img {
   color: white;
 }
 
+.dark {
+  background-color: grey;
+  color: black;
+}
 
 .alert { /* applies to all elements with class="alert" */
-  font-size: smaller;
+  font-size: larger;
 }
 
 .success { /* applies to all elements with class="success" */
@@ -43,3 +52,8 @@ img {
   font-family: 'Papyrus';
   background-color: #eee; 
 } */
+
+
+p {
+  font-family: Helvetica;
+}
