@@ -2,33 +2,43 @@
 h1 {
   font-family: 'Helvetica';
   color: white;
-  background-color: #333;
-  /* background-color: rebeccapurple; */
-  /* padding: .5em; */
+  /* background-color: #333; */
+  background-color: rebeccapurple;
+  padding: .5em;
 }
 
-/* p {
+p {
   font-family: 'Arial';
   font-size: 18px;
-} */
+}
 
-/* img {
+img {
   max-height: 150px;
   border-radius: 20px;
-} */
+}
 
-/* .centered {
+.centered {
   text-align: center;
-} */
+  font-family: 'Times New Roman', Times, serif
+}
 
-/* .cow {
-  background-color: aqua;
-} */
+.cow {
+  background-color: burlywood;
+} 
 
-/* .sheep {
-  background-color: chocolate;
-} */
+.sheep {
+  background-color: black;
+  color: white;
+}
 
+
+.alert { /* applies to all elements with class="alert" */
+  font-size: smaller;
+}
+
+.success { /* applies to all elements with class="success" */
+  color: #28a745; /* a pleasant green */
+}
 /* .about-section {
   font-family: 'Papyrus';
   background-color: #eee; 
