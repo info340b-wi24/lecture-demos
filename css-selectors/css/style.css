@@ -3,6 +3,7 @@ h1 {
   color: white;
   background-color: rebeccapurple;
   padding: .5em;
+  /* padding: 10px; */
 }
 
 h2 {
@@ -19,6 +20,62 @@ img {
 }
 
 /* elements with class="about-section" */
-.about-section {
+/* .about-section {
   background-color: #eee;
+} */
+
+.alert {
+  background-color: yellow;
+}
+
+p.alert{
+  background-color: bisque;
+}
+
+header h1 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.about-section .other {
+  background-color: red ;
+}
+
+.about-section div p {
+  background-color: red ;
+}
+
+.class1.class2 {
+  font-weight: bold;
+}
+
+.class1 {
+  background-color: orange;
+}
+
+header > p {
+  font-weight: bold;
+}
+
+/* li:last-child{
+  background-color: darkkhaki;
+} */
+
+
+li:nth-child(2n+1) {
+  background-color: darkkhaki;
+}
+/* h2, .alert, p { background-color: teal;
+} */
+
+/* h2 { background-color: teal;
+}
+
+.alert { background-color: teal;
+}
+
+#foo { background-color: teal;
+} */
+
+img:hover, img:focus{
+  border-radius:100px;
 }
