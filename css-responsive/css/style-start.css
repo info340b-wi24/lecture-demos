@@ -71,7 +71,7 @@ main {
     margin-left: 2em;
 }
 
-.courses {
+.jobs {
     flex-grow: 1;
 }
 
@@ -84,7 +84,7 @@ main {
     /* justify-content: space-between; */
 }
 
-.courses .card {
+.jobs .card {
     flex-grow: 1;
     flex-shrink: 0;
     flex-basis: 300px;
@@ -102,7 +102,7 @@ main {
     flex-grow: 1;
 }
 
-.courses img {
+.jobs img {
     max-width: 150px;
 }
 

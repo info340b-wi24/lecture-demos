@@ -83,7 +83,7 @@ nav li {
     padding-right: 1em;
 }
 
-.courses {
+.jobs {
     flex-grow: 1;
 }
 
@@ -96,7 +96,7 @@ nav li {
     /* justify-content: space-between; */
 }
 
-.courses .card {
+.jobs .card {
     flex-grow: 1;
     flex-shrink: 0;
     flex-basis: 300px;
@@ -115,7 +115,7 @@ nav li {
 }
 
 /* example 4 */
-.courses img {
+.jobs img {
     max-width: 150px;
     display: none;
 }
@@ -133,7 +133,7 @@ footer {
         background-color: lightpink;
     }
 
-    .courses .card {
+    .jobs .card {
         background-color: white;;
         flex-basis: 50%;
         margin:0;
@@ -144,7 +144,7 @@ footer {
     }
 
     /* example 4 */
-    .courses img {
+    .jobs img {
         display: block;
     }
     
@@ -153,7 +153,7 @@ footer {
 /* example 4 */
 
 @media (min-width: 992px) { 
-    .courses .card {
+    .jobs .card {
         flex-basis: 33%;
     
     }
