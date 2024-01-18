@@ -46,7 +46,7 @@ nav ul {
 
 nav li {
     display: inline;
-    flex-basis: 150px;
+    /* flex-basis: 150px; */
     padding: .5rem;
     vertical-align: middle;
 }
