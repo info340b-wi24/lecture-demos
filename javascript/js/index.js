@@ -1,9 +1,9 @@
 'use strict';
 
-// // // Slide 11/12/13
+// // Slide 11/12/13
 // console.log("Hello World");
 
-// console.log("The days are getting shorter")
+// console.log("The days are getting longer")
 
 // // Slide 16 - dynamically typed
 //  let myDogName = "Jovie";
@@ -14,15 +14,24 @@
 //  console.log(myDogName);
 //  console.log(typeof(myDogName));
 
-//  let hoursSlept;
+//  let hoursSlept = ['a', 'b', 'c'];
 //  console.log(hoursSlept);
+//  console.log(typeof(hoursSlept));
 
 // // Slide 17
 // const x = 4;
 // x = 5; // TypeError: Assignment to constant variable.
 
 // let y = 1.5;
-// y = 2; // ok!
+
+// const myArray = [1,2,3];
+
+
+// console.log(myArray)
+// myArray.push(5)
+// console.log(myArray)
+
+// myArray = [a,b,c];
 
 
 // // Slide 18 Variable types
@@ -45,6 +54,8 @@
 // console.log(letters); //['a', 'b', 'c', , , 'f']
 // letters.push('z'); //arrays have methods as well
 // console.log(letters);
+// letters[3] = "car";
+// console.log(letters);
 
 // // const myArray = ["tim", "tom", "ted"];
 // // console.log(myArray);
@@ -61,7 +72,8 @@
 //     ['portobello steak', 'rice', 'green beans']
 // ];
 
-// // console.log(dinnerOptions.length); //4
+// // // console.log(dinnerOptions.length); //4
+// console.log(dinnerOptions[2][0])
 
 // const fishOption = dinnerOptions[2]; // ['fish', 'rice', 'green beans']
 
@@ -71,7 +83,7 @@
 // console.log(fishOption[0]); //"fish"
 
 // // Access the 2th element's 0th element
-// console.log(dinnerOptions[1][0]); //"steak"
+// console.log(dinnerOptions[1][2]); //"steak"
 
 
 // // Slide 21 (type coersion)
@@ -102,17 +114,18 @@
 // const var4 = "four";
 
 // console.log(var1, var2, var3, var4);
-// console.log(var1 + var2 + var3 + var4);
+// console.log(var1 + " " + var2 + var3 + var4);
 
 // // Slide 22
-// const ages = {sarah:42, amit:35, zhang:13};
+// const ages = {'sarah':42, amit:35, zhang:13};
 
-// // const myVar = 'sarah';
+// const myVar = 'sarah';
 
 // console.log(ages);
-// // console.log(ages[myVar])
-// console.log(ages[sarah]);
-// console.log(ages.sarah);
+// console.log(ages['amit'])
+// console.log(ages[myVar]);
+// console.log(ages.zhang);
+// console.log(ages['zhang'])
 
 // //can omit quotes on keys, but they are actually strings!
 // const englishToSpanish = {one:'uno', two:'dos'}
@@ -132,7 +145,7 @@
 // console.log(typeExamples);
 
 
-// // Slide 23 Accessing Properties
+// // // Slide 23 Accessing Properties
 
 // const ages = {alice:40, bob:35, charles:13};
 
@@ -154,39 +167,42 @@
 // ages['joe'] = 15; //adds the key and assigns value
 // console.log(ages);
 
-// ages['joe'] = 15; //adds the key and assigns value
+// // ages['joe'] = 15; //adds the key and assigns value
 
 
 
-// // //slide 24 - practice problem
+// //slide 24 - practice problem
 
-// const dailySleep = { 'day' : 'Monday', 'hours' : 9};
+// const dailySleep = { day : 'Monday', hours : 9};
 
-// // const dailySleep = {};
-// // dailySleep['day'] = 'Monday';
-// // dailySleep['hours'] = 9;
+// const dailySleep = {};
+// dailySleep['day'] = 'Monday';
+// dailySleep['hours'] = 9;
 
 // let howMuchISlept = dailySleep['Monday'];
 
 // console.log("How Much I slept for the week", dailySleep);
 // console.log("How much I slept", dailySleep['day'], dailySleep['hours']);
 
-// // // json object example
-// // const dailySleepArray = [
-// // { day: "Monday", hours: 9},
-// // { day: "Tuesday", hours: 5},
-// // { day: "Wednesday", hours: 10},
-// // { day: "Thursday", hours: 7},
-// // { day: "Friday", hours: 9},
-// // { day: "Saturday", hours: 8},
-// // { day: "Sunday", hours: 6.5}
-// // ]
+// const emptyArray = [];
+// console.log(emptyArray)
 
-// // const weekArrayKeys = Object.keys(dailySleepArray);
+// // json object example
+// const dailySleepArray = [
+// { day: "Monday", hours: 9},
+// { day: "Tuesday", hours: 5},
+// { day: "Wednesday", hours: 10},
+// { day: "Thursday", hours: 7},
+// { day: "Friday", hours: 9},
+// { day: "Saturday", hours: 8},
+// { day: "Sunday", hours: 6.5}
+// ]
 
-// // for (const theKey of weekArrayKeys){
-// //   console.log("Sleep for :", dailySleepArray[theKey].day, ": " , dailySleepArray[theKey].hours)
-// // }
+// const weekArrayKeys = Object.keys(dailySleepArray);
+
+// for (const theKey of weekArrayKeys){
+//   console.log("Sleep for :", dailySleepArray[theKey].day, ": " , dailySleepArray[theKey].hours)
+// }
 
 
 // // Slide 25
@@ -207,13 +223,13 @@
 //   console.log(person['firstName']+' '+person['lastName']); //"Alice Jones"
   
   
-//   // const favFood = person['favorites'][inputtedValue]; //object in the object
-//   //                 //object           //value
+// //   const favFood = person['favorites'][inputtedValue]; //object in the object
+// //                   //object           //value
   
 //   const firstNumber = person['favorites']['numbers'][0]; //12
 
 //   console.log(firstNumber);
-//   person['favorites']['numbers'].push("hey"); //push 'hey' onto the Array
+//   person['favorites']['numbers'].push("56"); //push 'hey' onto the Array
 
 //   console.log(person['favorites']['numbers']);
 
@@ -227,6 +243,7 @@
 //       music: 'jazz',
 //       food: 'pizza',
 //       numbers: [12, 42]
+      
 //     }
 //   };
   
@@ -236,8 +253,8 @@
 //   person.lastName = 'Jones'; //set value of 'lastName' key
 //   console.log(person.firstName+' '+person.lastName); //"Alice Jones"
   
-//   const favFood = person.favorites.inputtedValue; //undefined!!
-//   // const favFood = person.favorites[inputtedValue]; 
+// //   const favFood = person.favorites.inputtedValue; //undefined!!
+//   const favFood = person.favorites[inputtedValue]; 
                 
 
 //     console.log(favFood);
@@ -262,28 +279,36 @@
 // });
 
 // // Slide 30
+const myArray1 = [a, b, c];
 
-// const myArray = [1, 2, 3, 4];
-// // example with normal for loop with array
-// for (let i=0;i<myArray.length; i++){
-//     console.log(myArray[i]);
-// }
+myArray.push(k)
+myArray1 = [e,f,g];
 
-// // example with enhanced for loop with array
-// for(const theItem of myArray) { //loop array items
-//   console.log(theItem)
-// }
+const myArray = [1, 2, 3, 4];
+// example with normal for loop with array
+for (let i=0;i<myArray.length; i++){
+    console.log(myArray[i]);
+}
 
-// // example with object 1
-// const myObject = {a: 1, b: 2, c: 3};
-// for(const theKey in myObject) { //loop object keys
-//   console.log(theKey, ":", myObject[theKey])
-// }
+// example with enhanced for loop with array
+for(const theItem of myArray) { //loop array items
+  console.log(theItem)
+}
 
-// // example with object 2
-// //explicit key looping - prefered this
-// const keys = Object.keys(myObject);
-// for(const theKey of keys) 
-// { console.log(theKey, ":", myObject[theKey])}
+// example with object 1
+const myObject = {a: 1, b: 2, c: 3};
+
+for(const theKey in myObject) { //loop object keys
+  console.log(theKey, ":", myObject[theKey])
+}
+
+// example with object 2
+//explicit key looping - prefered this
+const keys = Object.keys(myObject);
+for(const theKey of keys) 
+{ console.log(theKey, ":", myObject[theKey])};
 
 // Slide 32
+
+
+
