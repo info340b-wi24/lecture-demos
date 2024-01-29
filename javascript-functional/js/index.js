@@ -8,16 +8,21 @@ const peopleArray = [
   {name: 'Emma', height: 71, weight: 152}
 ]
 
-console.log(peopleArray);
+console.log("peopleArray :", peopleArray);
+console.log("typeof peopleArray: ", typeof peopleArray);
 
-// // Slide 9
-// //assign array to variable
-// const myArray = ['a','b','c'];
+// Slide 9
+//assign array to variable
+const myArray = ['a','b','c'];
 
-// typeof myArray //=> 'object'
-// const other = myArray;
+typeof myArray //=> 'object'
+console.log("myArray :", myArray);
+console.log("typeof myArray: ", typeof myArray);
 
-// console.log(typeof myArray);
+const other = myArray;
+
+console.log("other :", other);
+console.log("typeof other: ", typeof other);
 
 // //access value in other
 // console.log( other[1] ); //print 'b'
