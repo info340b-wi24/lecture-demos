@@ -8,21 +8,21 @@ const peopleArray = [
   {name: 'Emma', height: 71, weight: 152}
 ]
 
-console.log("peopleArray :", peopleArray);
-console.log("typeof peopleArray: ", typeof peopleArray);
+// console.log("peopleArray :", peopleArray);
+// console.log("typeof peopleArray: ", typeof peopleArray);
 
-// Slide 9
-//assign array to variable
-const myArray = ['a','b','c'];
+// // Slide 9
+// //assign array to variable
+// const myArray = ['a','b','c'];
 
-typeof myArray //=> 'object'
-console.log("myArray :", myArray);
-console.log("typeof myArray: ", typeof myArray);
+// typeof myArray //=> 'object'
+// console.log("myArray :", myArray);
+// console.log("typeof myArray: ", typeof myArray);
 
-const other = myArray;
+// const other = myArray;
 
-console.log("other :", other);
-console.log("typeof other: ", typeof other);
+// console.log("other :", other);
+// console.log("typeof other: ", typeof other);
 
 // //access value in other
 // console.log( other[1] ); //print 'b'
@@ -32,15 +32,19 @@ console.log("typeof other: ", typeof other);
 //   console.log("Hello, "+name);
 // }
 // // console.log(sayHello("tim"))
-// console.log(typeof sayHello); // 'function'
+// console.log("typeof sayHello :", typeof sayHello); // 'function'
 
 // const other1 = sayHello;
 
-// //prints "Hello, everyone"
+// console.log("typeof other1 :", typeof other1); // 'function'
+
+// //Both print "Hello, everyone" because they are the same function.
+// sayHello('everyone');
 // other1('everyone'); 
 
 
-// Slide 10
+
+// // Slide 10
 // const array = [1,2,3]; //named variable (not anonymous)
 // console.log(array); //pass in named var
 
@@ -72,26 +76,33 @@ console.log("typeof other: ", typeof other);
 //    console.log("Hello, "+name);
 // }
 
-// console.log(obj);
+// console.log("obj :", obj);
 
 // //assign function to object
 // obj.sayHi = sayHello;
 
-// // //access with dot notation
-// // obj.sayHi('all'); //prints "Hello all"
-// // console.log(obj.sayHi)
+// // note that this is a function off of the obj
+// console.log("obj.sayHi: ", obj.sayHi)
 
-// console.log(obj);
+// //access (run) with dot notation
+// obj.sayHi('all'); //prints "Hello all"
 
-// //assign literal (anonymous value)
+// //here's the object. It has the one function we assigned above
+// console.log("obj : ", obj);
+
+
+// //Now assign another function as a literal (anonymous value)
 // obj.otherFunc = function() { 
 //     console.log("Hello world!");
 // }
 
-// console.log(obj);
-// // console.log(obj.otherFunc());
+// // see that both functions have been added now
+// console.log("obj :", obj);
 
-// slide 12
+// //run it
+// obj.otherFunc();
+
+// // slide 12
 
 // function sayHello(name) { 
 //   console.log("Hello, "+name);
@@ -104,16 +115,16 @@ console.log("typeof other: ", typeof other);
 //   aFunction("world");
 // }
 
-// // //call function and pass value
-// // doWorld(sayHello); //prints "Hello world"
+// //call function and pass value
+// doWorld(sayHello); //prints "Hello world"
 
 
-// //pass literal (anonymous value)
-// doWorld(function(msg) {
-//  console.log("you said: "+msg);
-// }); //prints "you said: world"
+// // //pass literal (anonymous value)
+// // doWorld(function(msg) {
+// //  console.log("you said: "+msg);
+// // }); //prints "you said: world"
 
-/* note where parens and braces close! */
+// /* note where parens and braces close! */
 
 // // slide 13 passing versus calling
 // function sayHello() { //version with no args
@@ -145,19 +156,25 @@ console.log("typeof other: ", typeof other);
 // }
 
 // //pass in the callbacks to do them together
-// doTogether(rubBelly, patHead());
+// doTogether(patHead, rubBelly);
+
+// // doTogether(rubBelly, patHead);
+// // doTogether(rubBelly, patHead());
+
 
 // // Slide 15
 
-// // //Arbitrary list of people's names, heights, and weights
-// // let peopleArray = [ {name: 'Ada', height: 64, weight: 200},
-// //                     {name: 'Bob', height: 54, weight: 199},
-// //                     {name: 'Chris', height: 69, weight: 139},
-// //                     {name: 'Diya', height: 69, weight: 144},
-// //                     {name: 'Emma', height: 71, weight: 152}];
+// //Arbitrary list of people's names, heights, and weights
+// let peopleArray = [ {name: 'Ada', height: 64, weight: 200},
+//                     {name: 'Bob', height: 54, weight: 199},
+//                     {name: 'Chris', height: 69, weight: 139},
+//                     {name: 'Diya', height: 69, weight: 144},
+//                     {name: 'Emma', height: 71, weight: 152}];
 
 // console.log('**-Initial**');
-// peopleArray.forEach((person) => console.log(person))
+// peopleArray.forEach(function (person) { console.log(person)})
+
+// // // peopleArray.forEach((person) => console.log(person))
 
 // //a function to "sort" people objects. Returns
 // //  < 0 if A comes before B, 
@@ -175,7 +192,8 @@ console.log("typeof other: ", typeof other);
 
 // console.log('**-By Height**');
 // peopleArray.sort(sortByHeightFunction); //sorts in place!
-// peopleArray.forEach((person) => console.log(person))
+// peopleArray.forEach(function (person) { console.log(person)})
+// // peopleArray.forEach((person) => console.log(person))
 
 // function sortByWeightFunction(personA, personB) {
 //   if(personA.weight < personB.weight) {
@@ -189,7 +207,9 @@ console.log("typeof other: ", typeof other);
 
 // console.log('**-By Weight**');
 // peopleArray.sort(sortByWeightFunction); //sorts in place!
-// peopleArray.forEach((person) => console.log(person))
+// peopleArray.forEach(function (person) { console.log(person)})
+
+// //peopleArray.forEach((person) => console.log(person))
 
 // // Slide 16 - Array Iteration
 
@@ -211,16 +231,21 @@ console.log("typeof other: ", typeof other);
 // //Iterate through an array
 // const myArray = ['a','b','c'];
 
-// myArray.forEach(function(theItem, index, theArray) {
-//   //the item itself (e.g., `array[i]`` in a for loop)
-//   console.log(theItem); 
+// myArray.forEach(function(theItem){
+//   console.log(theItem);
+// })
 
-//   //the index (e.g., `i` in a for loop). Rarely used.
-//   console.log(index); 
+// // // now with all the available arguments
+// // myArray.forEach(function(theItem, index, theArray) {
+// //   //the item itself (e.g., `array[i]`` in a for loop)
+// //   console.log(theItem); 
 
-//   //the array (e.g., `array` in a for loop). Never used.
-//   console.log(theArray);
-// });
+// //   //the index (e.g., `i` in a for loop). Rarely used.
+// //   console.log(index); 
+
+// //   //the array (e.g., `array` in a for loop). Never used.
+// //   console.log(theArray);
+// // });
 
 // //Slide 18 Mapping
 
@@ -256,16 +281,16 @@ console.log("typeof other: ", typeof other);
 //   return transformed
 // };
 
-// const peopleGreetings = peopleNames.map(function (nameString) {
-//   const transformed = "Hi " + nameString + "!"
-//   return transformed
-// });
+// // const peopleGreetings = peopleNames.map(function (nameString) {
+// //   const transformed = "Hi " + nameString + "!"
+// //   return transformed
+// // });
 
-// // const peopleGreetings = peopleNames.map(greetTransform);
+// const peopleGreetings = peopleNames.map(greetTransform);
 
 // console.log(peopleGreetings);
 
-//Slide 20 - Filtering
+// // Slide 20 - Filtering
 
 // const array = [3,1,4,2,5];
 // console.log(array);
@@ -278,7 +303,9 @@ console.log("typeof other: ", typeof other);
 
 // console.log(peopleArray);
 // const tallPeopleArray = peopleArray.filter(function (personObj) {
+
 //   return personObj.height > 69;
+
 // })
 // console.log(tallPeopleArray);
 
@@ -309,6 +336,7 @@ console.log("typeof other: ", typeof other);
 
 // console.log(linked); //"->a->b->c->d->e"
 
+// // accumulate example with peopleArray
 // function accumulate(accumulation, personObj) {
 //   const newAccumulation = accumulation + personObj.height;
 //   return newAccumulation;
