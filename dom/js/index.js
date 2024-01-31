@@ -101,6 +101,7 @@ const songArray = [
 
 // function renderSongList(aSongArray) {
 //   const songListElem = document.querySelector('#dataSection ol');
+//   // songListElem.innerHTML = '';
 //   for (const songObj of aSongArray) {
 //     const songLiElem = createSongListItem(songObj);
 //     songListElem.appendChild(songLiElem);
@@ -138,6 +139,7 @@ const songArray = [
 
 // function renderSongList(newSongLiArray) {
 //   const songListElem = document.querySelector('#dataSection ol');
+//   songListElem.innerHTML = '';
 //   for (const songLiElem of newSongLiArray) {
 //     songListElem.appendChild(songLiElem);
 //   }
