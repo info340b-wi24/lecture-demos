@@ -56,7 +56,7 @@ const songArray = [
 
 // theImg.classList.add('anim') //adds a new style
 
-// // // In the console type: "theImg.classList.toggle('scale-out');"
+// // // // In the console type: "theImg.classList.toggle('scale-out');"
 
 
 // //Slide 16 Creating Elements
