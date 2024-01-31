@@ -1,0 +1,273 @@
+'use strict';
+
+const songArray = [
+  { artist: "The Who", title: "Won't Get Fooled Again", youtubeUrl: "https://www.youtube.com/watch?v=UDfAdHBtK_Q" },
+  {
+    artist: "Rush", title: "Tom Sawyer", youtubeUrl: "https://www.youtube.com/watch?v=QJ4-9tAf9UQ&list=PL26lD4FG8zwzpWUdgM9E0vYXDnLmSLj3m"
+  },
+  {
+    artist: "The Police", title: "Spirits In the Material World", youtubeUrl: "https://www.youtube.com/watch?v=BHOevX4DlGk"
+  }
+];
+
+// //Slide 13 - change h1 element and add additional highlighted text
+// // aquire the h1 element
+
+// const theH1 = document.querySelector('h1');
+// console.log(theH1)
+
+// const puppyImg = document.querySelector('#puppySection img')
+// console.log(puppyImg);
+
+// // querySelectorAll will select multiple elements rather than just the 1st element
+// // that matches the selector
+
+// //change the content of an element
+// const subtitle = document.querySelector('main h2');
+
+// subtitle.innerHTML = subtitle.textContent + " <em>(Husky)</em>";
+
+
+// //Slide 14 Change an Attribute
+
+// const h1Elem = document.querySelector('h1');
+
+// h1Elem.textContent = "DOM Demo";
+
+// const dogImg = document.querySelector('#puppySection img')
+
+// dogImg.src = 'img/husky.jpg';
+// dogImg.alt = 'a husky';
+
+
+// // Slide 15 Change a Style
+// // Notice you use "classList.add" to add an additional style to the 
+// // existing list of applied styles
+
+// //show the current style list (classList) for the header element
+// console.log(document.querySelector('header').classList);
+
+// //make the padding really big
+// document.querySelector('header').classList.add('py-5')
+
+// console.log(document.querySelector('header').classList);
+
+// const theImg = document.querySelector('img');
+
+// theImg.classList.add('anim') //adds a new style
+
+// // // // In the console type: "theImg.classList.toggle('scale-out');"
+
+
+// //Slide 16 Creating Elements
+
+// const newLi = document.createElement('li');
+// console.log(newLi);
+
+// newLi.textContent = songArray[0].artist + " - " + songArray[0].title;
+// console.log(newLi);
+
+// const songListElem = document.querySelector('#dataSection ol');
+// songListElem.appendChild(newLi);
+
+// // Slide 17 Example of building up an <li> with an embedded anchor tag
+// //eg: <li><a href="https://www.youtube.com/watch?v=BHOevX4DlGk">The Police - Spirits In The Material World</a></li>
+// //create the new element
+// let newLi = document.createElement('li');
+
+// //set the html
+// newLi.innerHTML = '<a href="https://www.youtube.com/watch?v=BHOevX4DlGk">The Police - Spirits In The Material World</a>';
+
+// //add to the appropriate place in DOM
+// const songListElem = document.querySelector('#dataSection ol');
+// songListElem.appendChild(newLi);
+
+
+// // Slide 18 - Pattern of using functions to generate elements
+// //Take in a song object and return a formatted <li> object
+// // We can do this with less code in React
+
+// function createSongListItem(songObj) {
+//   //make this into a url
+//   const aElem = document.createElement('a');
+//   aElem.textContent = songObj.artist + " - " + songObj.title;
+//   aElem.href = songObj.youtubeUrl;
+
+//   // create the newLi and make
+//   const newLi = document.createElement('li');
+//   newLi.append(aElem);
+//   return newLi;
+// }
+
+// function renderSongList(aSongArray) {
+//   const songListElem = document.querySelector('#dataSection ol');
+//   for (const songObj of aSongArray) {
+//     const songLiElem = createSongListItem(songObj);
+//     songListElem.appendChild(songLiElem);
+//   }
+  
+// document.querySelector('#dataSection h2').textContent = "Top "+aSongArray.length+ " Songs";
+
+// }
+
+// renderSongList(songArray);
+
+
+
+// // INTERACTIVITY
+
+// // Slide 23 Example 1
+// const hideButton = document.querySelector('#puppySection button');
+
+// function whatToDoWhenClicked(event){
+//   console.log("you clicked me!");
+//   console.log(event); //the event object
+//   console.log(event.target); //tells you which element got clicked
+// }
+
+// hideButton.addEventListener('click', whatToDoWhenClicked )
+
+// // Slide 23 Example 2
+
+// const puppyImg = document.querySelector('#puppySection img');
+// const hideButton = document.querySelector('#puppySection button');
+
+// hideButton.addEventListener('click', function (event) {
+//   puppyImg.classList.add('d-none');
+// });
+
+
+// //Slide 24 - Using state to keep track if puppy is showing
+
+// //STATE (should be at top of file)
+// let puppyShown = true;
+
+// function renderPuppy() {
+//   const imgElement = document.createElement('img');
+//   imgElement.src = 'img/puppy.jpg';
+//   imgElement.alt = 'a cute puppy';
+
+//   if (!puppyShown) {
+//     imgElement.classList.add('d-none')
+//   }
+
+//   document.querySelector('#puppySection div').appendChild(imgElement);
+
+// }
+// renderPuppy();
+
+// const hideButton = document.querySelector('#puppySection button');
+
+// hideButton.addEventListener('click', function (event) {
+//   //change the state
+//   puppyShown = !puppyShown;
+//   //rerender
+//   renderPuppy();
+// });
+
+// //Slide 25 - Using state to keep track if puppy is showing
+
+// //STATE (should be at top of file)
+// let puppyShown = true;
+
+// const hideButton = document.querySelector('#puppySection button');
+
+// function renderPuppy() {
+//   //clear out the previous content befor rendering
+//   const puppyContainer = document.querySelector('#puppySection div');
+//   puppyContainer.innerHTML = '';
+
+//   if (puppyShown) {
+//     const imgElement = document.createElement('img');
+//     imgElement.src = 'img/puppy.jpg';
+//     imgElement.alt = 'a cute puppy';
+//     puppyContainer.appendChild(imgElement);
+//     document.querySelector('#puppySection button').textContent = 'Hide';
+//   }
+//   else { //not shown
+//     document.querySelector('#puppySection button').textContent = 'Show';
+//   }
+// }
+
+// renderPuppy();
+
+// hideButton.addEventListener('click', function (event) {
+//   //change the state
+//   puppyShown = !puppyShown;
+//   //rerender
+//   renderPuppy();
+// });
+
+// // Slide 28 - Form 
+// const formElement = document.querySelector('#formSection form');
+
+// //listen for submit events
+// formElement.addEventListener('submit', function(event) {
+//   // you need to keep it from doing the default behavior
+//   event.preventDefault();
+//   console.log('submitted!');
+//   console.log(event.target);
+
+//   //... do something with that value!  
+// });
+
+// //Slide 28A
+// //(note I'm readding createSongListItem and renderSongList here 
+// //because it was commented out above to make these examples independent
+// // note that the render songlist now clears out the section first before 
+// // rerendering
+
+// renderSongList(songArray);
+
+// function createSongListItem(songObj) {
+//   //make this into a url
+//   const aElem = document.createElement('a');
+//   aElem.textContent = songObj.artist + " - " + songObj.title;
+//   aElem.href = songObj.youtubeUrl;
+
+//   // create the newLi and make
+//   const newLi = document.createElement('li');
+//   newLi.append(aElem);
+//   return newLi;
+// }
+
+// function renderSongList(aSongArray) {
+//   // clear out the previous content befor rendering
+//   const songListElem = document.querySelector('#dataSection ol');
+//   songListElem.innerHTML = '';
+
+//   for (const songObj of aSongArray) {
+//     const songLiElem = createSongListItem(songObj);
+//     songListElem.appendChild(songLiElem);
+//   }
+
+//   document.querySelector('#dataSection h2').textContent = "Top " + aSongArray.length + " Songs";
+
+// }
+// const formElement = document.querySelector('#formSection form');
+
+// //listen for submit events
+// formElement.addEventListener('submit', function (event) {
+//   //stop normal behavior (going to a new site)
+//   event.preventDefault();
+
+//   //access what value the user typed in
+//   const artistInput = document.querySelector('#artistInput');
+//   const titleInput = document.querySelector('#titleInput');
+//   const urlInput = document.querySelector('#urlInput');
+
+//   const artistVal = artistInput.value;
+//   const titleVal = titleInput.value;
+//   const urlVal = urlInput.value;
+
+//   console.log(artistVal + " " + titleVal + " " + urlVal);
+
+//   const newSong = { artist: artistVal, title: titleVal, youtubeUrl: urlVal };
+
+//   songArray.push(newSong);
+
+//   renderSongList(songArray);
+
+// });
+
+// // renderSongList(songArray);
