@@ -40,9 +40,9 @@ const songArray = [
 // dogImg.alt = 'a husky';
 
 
-// // Slide 15 Change a Style
-// // Notice you use "classList.add" to add an additional style to the 
-// // existing list of applied styles
+// Slide 15 Change a Style
+// Notice you use "classList.add" to add an additional style to the 
+// existing list of applied styles
 
 // //show the current style list (classList) for the header element
 // console.log(document.querySelector('header').classList);
@@ -56,7 +56,7 @@ const songArray = [
 
 // theImg.classList.add('anim') //adds a new style
 
-// // // // In the console type: "theImg.classList.toggle('scale-out');"
+// // In the console type: "theImg.classList.toggle('scale-out');"
 
 
 // //Slide 16 Creating Elements
@@ -93,7 +93,7 @@ const songArray = [
 //   aElem.textContent = songObj.artist + " - " + songObj.title;
 //   aElem.href = songObj.youtubeUrl;
 
-//   // create the newLi and make
+//   // create the newLi and which has the anchor tag inside
 //   const newLi = document.createElement('li');
 //   newLi.append(aElem);
 //   return newLi;
@@ -105,13 +105,48 @@ const songArray = [
 //     const songLiElem = createSongListItem(songObj);
 //     songListElem.appendChild(songLiElem);
 //   }
-  
+
 // document.querySelector('#dataSection h2').textContent = "Top "+aSongArray.length+ " Songs";
 
 // }
 
 // renderSongList(songArray);
 
+// // Slide 18A - Pattern of using functions to generate elements
+// //Take in a song object and return a formatted <li> object
+// // This time using map instead
+
+// function createSongListItem(songObj) {
+//   //make this into a url
+//   const aElem = document.createElement('a');
+//   aElem.textContent = songObj.artist + " - " + songObj.title;
+//   aElem.href = songObj.youtubeUrl;
+
+//   // create the newLi and which has the anchor tag inside
+//   const newLi = document.createElement('li');
+//   newLi.append(aElem);
+//   return newLi;
+// }
+
+// // map (transform) the songArray to an array of 
+// // li elements 
+// const newSongLiArray = songArray.map(function (songObj) {
+//   const songLiElem = createSongListItem(songObj);
+//   return songLiElem;
+// })
+
+
+// function renderSongList(newSongLiArray) {
+//   const songListElem = document.querySelector('#dataSection ol');
+//   for (const songLiElem of newSongLiArray) {
+//     songListElem.appendChild(songLiElem);
+//   }
+
+//   document.querySelector('#dataSection h2').textContent = "Top " + newSongLiArray.length + " Songs";
+
+// }
+
+// renderSongList(newSongLiArray);
 
 
 // // INTERACTIVITY
@@ -198,7 +233,7 @@ const songArray = [
 //   renderPuppy();
 // });
 
-// // Slide 28 - Form 
+// // Slide 28 - Form
 // const formElement = document.querySelector('#formSection form');
 
 // //listen for submit events
@@ -208,13 +243,13 @@ const songArray = [
 //   console.log('submitted!');
 //   console.log(event.target);
 
-//   //... do something with that value!  
+//   //... do something with that value!
 // });
 
 // //Slide 28A
-// //(note I'm readding createSongListItem and renderSongList here 
+// //(note I'm readding createSongListItem and renderSongList here
 // //because it was commented out above to make these examples independent
-// // note that the render songlist now clears out the section first before 
+// // note that the render songlist now clears out the section first before
 // // rerendering
 
 // renderSongList(songArray);
