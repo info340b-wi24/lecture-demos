@@ -70,13 +70,29 @@ const songArray = [
 // const songListElem = document.querySelector('#dataSection ol');
 // songListElem.appendChild(newLi);
 
-// // Slide 17 Example of building up an <li> with an embedded anchor tag
+// // Slide 17 Example of building up an <li> with an embedded anchor tag using innerHTML
 // //eg: <li><a href="https://www.youtube.com/watch?v=BHOevX4DlGk">The Police - Spirits In The Material World</a></li>
 // //create the new element
-// let newLi = document.createElement('li');
+// const newLi = document.createElement('li');
 
 // //set the html
 // newLi.innerHTML = '<a href="https://www.youtube.com/watch?v=BHOevX4DlGk">The Police - Spirits In The Material World</a>';
+
+// //add to the appropriate place in DOM
+// const songListElem = document.querySelector('#dataSection ol');
+// songListElem.appendChild(newLi);
+
+// // Slide 17A Example of building up an <li> with an embedded anchor tag, but building up
+
+// //create the new elements
+// const newLi = document.createElement('li');
+// const newAnchor = document.createElement('a');
+
+// //fill out the attributes for the anchor
+// newAnchor.href = "https://www.youtube.com/watch?v=BHOevX4DlGk";
+// newAnchor.textContent = "The Police - Spirits In The Material World";
+
+// newLi.appendChild(newAnchor);
 
 // //add to the appropriate place in DOM
 // const songListElem = document.querySelector('#dataSection ol');
