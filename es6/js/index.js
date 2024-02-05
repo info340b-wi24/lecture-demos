@@ -10,7 +10,7 @@ const peopleArray = [
 console.log(peopleArray);
 
 // Slide 5
-//Example use of callback functions
+// Example use of callback functions
 // List out the people in the array
 // We have an array of [{}, {}, {}]
 // We want an array of ["","",""]
@@ -28,7 +28,7 @@ console.log(peopleArray);
 // });
 // console.log(nameArray1);
 
-// // ex3 - using for each rather than map
+// // ex3 - using 'for each' rather than map
 // const nameArray2 = [];
 // peopleArray.forEach(function(personObj, index) {
 //     nameArray2[index] = personObj.name;
@@ -46,14 +46,15 @@ console.log(peopleArray);
 // Example of reduce
 // Find the average height/weight ratio
 
-// // Ex1: First remember
+// // Ex1: First remember, we can create an array using map of bmi
 // const ratioArray = peopleArray.map(function (peopleObj) {
 // const ratio = peopleObj.height/peopleObj.weight;
 // return ratio;
 // })
-// console.log(ratioArray);
+// console.log("bmi index array", ratioArray);
 
-// // Ex2: Here's one way to do it
+// // Ex2: Here's one way to do it. Get the total using 'reduce'
+// // Then divide by the length of the array
 // const ratioTotal = peopleArray.reduce(function (oldRunningTotal, peopleObj) {
 //     console.log("oldTotal", oldRunningTotal);
 //     const ratio = peopleObj.height / peopleObj.weight;
@@ -64,9 +65,10 @@ console.log(peopleArray);
 //     return newRunningTotal;
 // }, 0)
 // console.log(ratioTotal);
-// console.log(ratioTotal/peopleArray.length)
+// console.log("Here's the average BMI: ", ratioTotal/peopleArray.length)
 
-// // Ex3: Here's the way to return the avg from within the reduce method using the other extra params
+// // Ex3: Here's the way to return the avg from within the reduce method using the 
+// // other extra params
 // const ratioAvg = peopleArray.reduce(function (oldRunningTotal, peopleObj, idx, array) {
 //     console.log("oldTotal", oldRunningTotal);
 //     const ratio = peopleObj.height / peopleObj.weight;
@@ -76,8 +78,8 @@ console.log(peopleArray);
 //     console.log("newAvg", newAvgRatio);
 //     return newAvgRatio;
 // }, 0)
-// console.log(ratioAvg);
-// console.log(ratioTotal/peopleArray.length)
+// console.log("Here's the average BMI: ", ratioAvg);
+
 
 // //Event listener
 // const buttonElem = document.querySelector('button');
@@ -107,12 +109,17 @@ console.log(peopleArray);
 
 //   console.log(foo("world"));
 
-//   //normal function declaration
+//   //arrow arrow declaration
 // const foo1 = (params) => {
 //     return 'foo '+params;
 //   }
-
 //   console.log(foo1("Fred"));
+
+//   //normal concise arrow declaration
+//   const foo2 = (params) =>  'foo '+params;
+  
+//   console.log(foo2("Wilma"));
+
 
 //   // Slide 12
 //   //destructuring arrays
@@ -129,31 +136,6 @@ console.log(peopleArray);
 // console.log(b); //=> 2;
 // console.log(c); //=> 3;
 
-// Here's the way to return the avg from within the reduce method using the other extra params
-// and demonstrating destructuring from teh people peopleObj
-// const ratioAvg = peopleArray.reduce(function (oldRunningTotal, peopleObj, idx, array) {
-
-//     const {height, weight} = peopleObj;
-
-//     const ratio = height / weight;
-
-//     const newAvgRatio= oldRunningTotal + ratio/array.length;
-
-//     return newAvgRatio;
-// }, 0)
-// console.log(ratioAvg);
-
-// const ratioAvg = peopleArray.reduce(function (oldRunningTotal, {height, weight}, idx, array) {
-
-//     // const {height, weight} = peopleObj;
-
-//     const ratio = height / weight;
-
-//     const newAvgRatio= oldRunningTotal + ratio/array.length;
-
-//     return newAvgRatio;
-// }, 0)
-// console.log(ratioAvg);
 
 
 // // Slide 14
@@ -164,6 +146,7 @@ console.log(peopleArray);
 // console.log(width);  //=> 10
 // console.log(height); //=> 20
 // console.log(rest);   //=> [30, 40]; the rest of the values!
+// // console.log(rest[1])
 
 // //With an object
 // const person = {name: 'Ada', height: 64, weight: 135}
@@ -180,6 +163,36 @@ console.log(peopleArray);
 
 // const tallerAda = {...person, height: 74};
 // console.log(tallerAda);
+
+// 
+// 2 Examples of the reduce method using the destructuring as well
+// Example 1: Here's the way to return the avg from within the reduce method using the other extra params
+// and demonstrating destructuring from the people peopleObj
+// const ratioAvg = peopleArray.reduce(function (oldRunningTotal, peopleObj, idx, array) {
+
+//     const {height, weight} = peopleObj; //destructuring
+
+//     const ratio = height / weight;
+
+//     const newAvgRatio= oldRunningTotal + ratio/array.length;
+
+//     return newAvgRatio;
+// }, 0)
+// console.log(ratioAvg);
+
+// Example 2 : But I can destructure in the argument list instead
+// const ratioAvg = peopleArray.reduce(function (oldRunningTotal, {height, weight}, idx, array) {
+
+//     // const {height, weight} = peopleObj;
+
+//     const ratio = height / weight;
+
+//     const newAvgRatio= oldRunningTotal + ratio/array.length;
+
+//     return newAvgRatio;
+// }, 0)
+// console.log(ratioAvg);
+
 
 // //Slide 15
 // //a function that adds up all the arguments (no matter how many!)
