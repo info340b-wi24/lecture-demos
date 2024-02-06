@@ -43,8 +43,8 @@ console.log(peopleArray);
 // }
 // console.log(nameArray3)
 
-// Example of reduce
-// Find the average height/weight ratio
+// // Example of reduce
+// // Find the average height/weight ratio
 
 // // Ex1: First remember, we can create an array using map of bmi
 // const ratioArray = peopleArray.map(function (peopleObj) {
@@ -115,11 +115,12 @@ console.log(peopleArray);
 //   }
 //   console.log(foo1("Fred"));
 
-//   //normal concise arrow declaration
-//   const foo2 = (params) =>  'foo '+params;
+  // //normal concise arrow declaration
+  // const foo2 = (params) =>  'foo '+params;
   
-//   console.log(foo2("Wilma"));
+  // console.log(foo2("Wilma"));
 
+  
 
 //   // Slide 12
 //   //destructuring arrays
@@ -139,7 +140,7 @@ console.log(peopleArray);
 
 
 // // Slide 14
-// //With an array
+// //Spread with an array
 // const dimensions = [10, 20, 30, 40];
 // //extra values are "spread" into destructuring slots
 // const [width, height, ...rest] = dimensions 
@@ -148,7 +149,7 @@ console.log(peopleArray);
 // console.log(rest);   //=> [30, 40]; the rest of the values!
 // // console.log(rest[1])
 
-// //With an object
+// //Spread with an object
 // const person = {name: 'Ada', height: 64, weight: 135}
 // console.log(person)
 // const copyOfPerson = {...person}; //clone an object!
@@ -165,9 +166,10 @@ console.log(peopleArray);
 // console.log(tallerAda);
 
 // 
-// 2 Examples of the reduce method using the destructuring as well
-// Example 1: Here's the way to return the avg from within the reduce method using the other extra params
-// and demonstrating destructuring from the people peopleObj
+// // 2 Examples of the reduce method using the destructuring as well
+
+// // Example 1: Here's the way to return the avg from within the reduce method using the other extra params
+// // and demonstrating destructuring from the people peopleObj
 // const ratioAvg = peopleArray.reduce(function (oldRunningTotal, peopleObj, idx, array) {
 
 //     const {height, weight} = peopleObj; //destructuring
@@ -180,7 +182,7 @@ console.log(peopleArray);
 // }, 0)
 // console.log(ratioAvg);
 
-// Example 2 : But I can destructure in the argument list instead
+// // Example 2 : But I can destructure in the argument list instead
 // const ratioAvg = peopleArray.reduce(function (oldRunningTotal, {height, weight}, idx, array) {
 
 //     // const {height, weight} = peopleObj;
