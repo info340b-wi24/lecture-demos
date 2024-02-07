@@ -8,12 +8,12 @@ console.log("I'm the index.js file!");
 // console.log("animalArray: ", animalArray);
 
 
-// // Slide 18
-// import './other.js'
+// Slide 18
+// import '.?=/other.js'
 
 // // // Slide 18a
-// // import {otherMessage} from './other.js';
-// // console.log("otherMessage: ", otherMessage)
+import {otherMessage} from './other.js';
+console.log("otherMessage: ", otherMessage)
 
 // //Slide 18b
 // import {otherMessage, otherFunc as myFunc} from './other.js';

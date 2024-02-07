@@ -15,6 +15,12 @@ console.log(peopleArray);
 // We have an array of [{}, {}, {}]
 // We want an array of ["","",""]
 
+// All expect a callback function.
+// array.map
+// array.reduce
+// array.filter
+// array.foreach
+
 // // ex1
 // function getNameStringFromPersonObj(personObj) {
 //     return personObj.name;
@@ -115,23 +121,25 @@ console.log(peopleArray);
 //   }
 //   console.log(foo1("Fred"));
 
-  // //normal concise arrow declaration
-  // const foo2 = (params) =>  'foo '+params;
+//   //normal concise arrow declaration
+//   const foo2 = (params) =>  'foo '+params;
   
-  // console.log(foo2("Wilma"));
+//   console.log(foo2("Wilma"));
+
+
 
   
 
 //   // Slide 12
 //   //destructuring arrays
-// const myArray = [1, 2, 3];
+// const myArray = [1, 2, 3, 5];
 // const [x, y, z] = myArray; //myArray elements to `x`, `y`, `z`
 // console.log(x); //=> 1;
 // console.log(y); //=> 2;
 // console.log(z); //=> 3;
 
 // //destructuring objects
-// const myObject = {a: "dude", b: "surf", c: 3};
+// const myObject = {a: "dude", b: "surf", c: "hey"};
 // const {a, b, c} = myObject; //myObject.a to a, etc.
 // console.log(a); //=> 1
 // console.log(b); //=> 2;
@@ -147,7 +155,7 @@ console.log(peopleArray);
 // console.log(width);  //=> 10
 // console.log(height); //=> 20
 // console.log(rest);   //=> [30, 40]; the rest of the values!
-// // console.log(rest[1])
+// console.log(rest[1])
 
 // //Spread with an object
 // const person = {name: 'Ada', height: 64, weight: 135}
@@ -194,7 +202,7 @@ console.log(peopleArray);
 //     return newAvgRatio;
 // }, 0)
 // console.log(ratioAvg);
-
+ 
 
 // //Slide 15
 // //a function that adds up all the arguments (no matter how many!)
