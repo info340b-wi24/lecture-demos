@@ -19,9 +19,9 @@ console.log("I'm the other.js file!");
 //Slide 20 default example
 export const otherMessage = "I'm other!";
 
-// export default function otherFunc() {
-//     console.log("Text from 'otherFunc()' ");
-// }
+export default function otherFunc() {
+    console.log("Text from 'otherFunc()' ");
+}
 
 
  
