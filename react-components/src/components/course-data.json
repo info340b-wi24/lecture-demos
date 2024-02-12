@@ -1,0 +1,35 @@
+[
+  {
+    "image": "img/SeattleTimes.jpg",
+    "altTag": "SeattleTimes Logo",
+    "jobName": "Seattle Times: Paperboy"
+  },
+  {
+    "image": "img/MicrosoftLogo.jpg",
+    "altTag": "Microsoft Logo",
+    "jobName": "Microsoft: Softare Test Manager"
+  },
+  {
+    "image": "img/arenasportslogo.jpg",
+    "altTag": "ArenaSports Logo",
+    "jobName": "Arena Sports:  Data Engineer",
+    "currentJob": true
+  },
+  {
+    "image": "img/Seattle_Supersonics400x400.jpg",
+    "altTag": "Sonics Logo",
+    "jobName": "Seattle Sonics: Public Relations Intern"
+  },
+  {
+    "image": "img/UWLogo.jpg",
+    "altTag": "UW Logo",
+    "jobName": "University of Washington: Guest Faculty Info340, CSS143, CSS107",
+    "currentJob": true
+  },
+  {
+    "image": "img/roofingLogo.jpg",
+    "altTag": "Roofing Logo",
+    "jobName": "Commercial Roofer",
+    "currentJob": false
+  }
+]
