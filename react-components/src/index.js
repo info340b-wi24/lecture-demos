@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-// //add bootstrap
-// import 'bootstrap/dist/css/bootstrap.css'
+//add bootstrap
+import 'bootstrap/dist/css/bootstrap.css'
 
 import './index.css';
 
@@ -148,9 +148,9 @@ import './index.css';
 
 
 
-// //Slide 14A - Making modular components - Now we're moving stuff to individual js component files
+//Slide 14A - Making modular components - Now we're moving stuff to individual js component files
 
-// import App from './components/App'
+import App from './components/App'
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<App/>);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App/>);

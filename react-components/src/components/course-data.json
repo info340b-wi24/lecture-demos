@@ -31,5 +31,12 @@
     "altTag": "Roofing Logo",
     "jobName": "Commercial Roofer",
     "currentJob": false
+  },
+  {
+    "image": "img/roofingLogo.jpg",
+    "altTag": "DisneyLand",
+    "jobName": "Disneyland",
+    "currentJob": false
   }
+
 ]
