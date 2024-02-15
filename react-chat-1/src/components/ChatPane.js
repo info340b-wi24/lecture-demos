@@ -4,10 +4,10 @@ import React from 'react';
 // export function ChatPane(props) {
 //     return (
 //         <div>
-//             <MessageItem />;
-//             <MessageItem />;
-//             <MessageItem />;
-//             <MessageItem />;
+//             <MessageItem />
+//             <MessageItem />
+//             <MessageItem />
+//             <MessageItem />
 //         </div>
 //     )
 // }
@@ -40,7 +40,7 @@ import React from 'react';
 
 //     return (
 //         <div className='message d-flex'>
-//             <div className='me-2'>
+//             <div className='me-3'>
 //                 <img src='/img/Parrot.png' alt='parrot avatar' />
 //             </div>
 //             <div className='flex-grow-1'>
@@ -51,7 +51,7 @@ import React from 'react';
 //     )
 // }
 
-// // Example Slide 16
+// // Example Slide 17
 
 // import CHAT_HISTORY from '../data/chat_log.json';
 
@@ -71,6 +71,8 @@ import React from 'react';
 //     const userName = props.messageData.userName;
 //     const userImg = props.messageData.userImg;
 //     const text = props.messageData.text;
+
+//     // const {userName, userImg, text } = props.messageData;
 
 //     return (
 //         <div className='message d-flex'>
@@ -85,38 +87,6 @@ import React from 'react';
 //     )
 // }
 
-// // Slide 17
-// import CHAT_HISTORY from '../data/chat_log.json';
-
-// export function ChatPane(props) {
-   
-//     return (
-//         <div>
-//              <MessageItem messageData={CHAT_HISTORY[0]}/>
-//              <MessageItem messageData={CHAT_HISTORY[1]}/>
-//              <MessageItem messageData={CHAT_HISTORY[2]}/>
-//              <MessageItem messageData={CHAT_HISTORY[3]}/>
-//         </div>
-//     )
-// }
-
-// function MessageItem(props) {
-//     const userName = props.messageData.userName;
-//     const userImg = props.messageData.userImg;
-//     const text = props.messageData.text;
-
-//     return (
-//         <div className='message d-flex mb-2'>
-//             <div className='me-2'>
-//                 <img src={userImg} alt={userName+ " avatar"} />
-//             </div>
-//             <div className='flex-grow-1'>
-//                 <p className='user-name'>{userName}</p>
-//                 <p>{text}</p>
-//             </div>
-//         </div>
-//     )
-// }
 
 
 // // Slide 18
@@ -159,12 +129,12 @@ import React from 'react';
 //     const currentChannel='random';
 
 //     // const currentChannel = props.currentChannel;
-//     const channelMessage = CHAT_HISTORY.filter((msgObj) => {
+//     const filteredChannelMessage = CHAT_HISTORY.filter((msgObj) => {
 //         //if current channel, then keep
 //         return (msgObj.channel === currentChannel)
 //     })
     
-//     const messageItemArray = channelMessage.map((messageObj) => {
+//     const messageItemArray = filteredChannelMessage.map((messageObj) => {
 //         const element = <MessageItem messageData={messageObj} key={messageObj.timestamp}/>
 //         return element;
 // })
@@ -199,12 +169,12 @@ import React from 'react';
 // export function ChatPane(props) {
 
 //     const currentChannel = props.currentChannel;
-//     const channelMessage = CHAT_HISTORY.filter((msgObj) => {
+//     const filteredChannelMessage = CHAT_HISTORY.filter((msgObj) => {
 //         //if current channel, then keep
 //         return (msgObj.channel === currentChannel)
 //     })
     
-//     const messageItemArray = channelMessage.map((messageObj) => {
+//     const messageItemArray = filteredChannelMessage.map((messageObj) => {
 //         const element = <MessageItem messageData={messageObj} key={messageObj.timestamp}/>
 //         return element;
 // })
@@ -221,6 +191,7 @@ import React from 'react';
 //     const { userName, userImg, text} = props.messageData
 
 //     const handleClick = (event) => {
+
 //         console.log("you clicked on", userName);
 //     }
 
@@ -236,3 +207,4 @@ import React from 'react';
 //         </div>
 //     )
 // }
+

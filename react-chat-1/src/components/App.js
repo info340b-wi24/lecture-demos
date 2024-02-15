@@ -1,7 +1,7 @@
 import React from 'react';
-// import { HeaderBar } from './HeaderBar';
-// import { ChannelList } from './ChannelList'
-// import { ChatPane } from './ChatPane';
+import { HeaderBar } from './HeaderBar';
+import { ChannelList } from './ChannelList'
+import { ChatPane } from './ChatPane';
 
 
 export default function App(props) {
@@ -11,7 +11,7 @@ export default function App(props) {
 }
 
 
-
+// // Example Slide 13
 // export default function App(props) {
 //   return (
 //     <div>
@@ -45,7 +45,7 @@ export default function App(props) {
 
 // // Example Slide 24 
 // export default function App(props) {
-//   const currentChannel = 'random';
+//   const currentChannel = 'general';
 
 //   return (
 //     <div className='d-flex flex-column'>
