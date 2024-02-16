@@ -126,7 +126,7 @@ import React from 'react';
 // import CHAT_HISTORY from '../data/chat_log.json';
 
 // export function ChatPane(props) {
-//     const currentChannel='random';
+//     const currentChannel='general';
 
 //     // const currentChannel = props.currentChannel;
 //     const filteredChannelMessage = CHAT_HISTORY.filter((msgObj) => {
@@ -163,48 +163,48 @@ import React from 'react';
 //     )
 // }
 
-// // Slide 24 Example
-// import CHAT_HISTORY from '../data/chat_log.json';
+// Slide 24 Example
+import CHAT_HISTORY from '../data/chat_log.json';
 
-// export function ChatPane(props) {
+export function ChatPane(props) {
 
-//     const currentChannel = props.currentChannel;
-//     const filteredChannelMessage = CHAT_HISTORY.filter((msgObj) => {
-//         //if current channel, then keep
-//         return (msgObj.channel === currentChannel)
-//     })
+    const currentChannel = props.currentChannel;
+    const filteredChannelMessage = CHAT_HISTORY.filter((msgObj) => {
+        //if current channel, then keep
+        return (msgObj.channel === currentChannel)
+    })
     
-//     const messageItemArray = filteredChannelMessage.map((messageObj) => {
-//         const element = <MessageItem messageData={messageObj} key={messageObj.timestamp}/>
-//         return element;
-// })
+    const messageItemArray = filteredChannelMessage.map((messageObj) => {
+        const element = <MessageItem messageData={messageObj} key={messageObj.timestamp}/>
+        return element;
+})
 
-//     return (
-//         <div className='pt-2'>
-//         {messageItemArray}  
-//         </div>     
-//     )
-// }
+    return (
+        <div className='pt-2'>
+        {messageItemArray}  
+        </div>     
+    )
+}
 
-// function MessageItem(props) {
+function MessageItem(props) {
 
-//     const { userName, userImg, text} = props.messageData
+    const { userName, userImg, text} = props.messageData
 
-//     const handleClick = (event) => {
+    const handleClick = (event) => {
 
-//         console.log("you clicked on", userName);
-//     }
+        console.log("you clicked on", userName);
+    }
 
-//     return (
-//         <div className='message d-flex mb-2'>
-//             <div className='me-2'>
-//                 <img src={userImg} alt={userName+ " avatar"} onClick={handleClick} />
-//             </div>
-//             <div className='flex-grow-1'>
-//                 <p className='user-name'>{userName}</p>
-//                 <p>{text}</p>
-//             </div>
-//         </div>
-//     )
-// }
+    return (
+        <div className='message d-flex mb-2'>
+            <div className='me-2'>
+                <img src={userImg} alt={userName+ " avatar"} onClick={handleClick} />
+            </div>
+            <div className='flex-grow-1'>
+                <p className='user-name'>{userName}</p>
+                <p>{text}</p>
+            </div>
+        </div>
+    )
+}
 
