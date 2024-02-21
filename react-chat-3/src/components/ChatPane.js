@@ -154,12 +154,12 @@ function MessageItem(props) {
 //         <button className="btn like-button" onClick={handleClick}>
 //           <span className="material-icons" style={{ color: heartColor }}>favorite_border</span>
 //         </button>
-//         {/* { isLiked &&
+//         { isLiked &&
 //           <div>
 //           	<p> Here's some more text if the 'liked' button is selected!</p>
 //           	<img src={userImg} alt={userName + "'s avatar"} />
 //           </div>
-//         } */}
+//         }
 //       </div>
 //     </div>
 //   )
