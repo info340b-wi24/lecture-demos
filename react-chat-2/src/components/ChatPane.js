@@ -1,47 +1,47 @@
-import React from 'react';
+// import React from 'react';
 
-import CHAT_HISTORY from '../data/chat_log.json';
+// import CHAT_HISTORY from '../data/chat_log.json';
 
-export function ChatPane(props) {
-  const currentChannel = props.currentChannel;
+// export function ChatPane(props) {
+//   const currentChannel = props.currentChannel;
 
-  const handleClick = (event) => {
-    console.log("you clicked me!");
-  }
+//   const handleClick = (event) => {
+//     console.log("you clicked me!");
+//   }
 
-  //only show current channel messages and sort by reverse chron order
-  const channelMessage = CHAT_HISTORY.filter((msgObj) => {
-    return msgObj.channel === currentChannel;
-  }).sort((m1,m2) => m2.timestamp - m1.timestamp)
+//   //only show current channel messages and sort by reverse chron order
+//   const channelMessage = CHAT_HISTORY.filter((msgObj) => {
+//     return msgObj.channel === currentChannel;
+//   }).sort((m1,m2) => m2.timestamp - m1.timestamp)
 
   
-  const messageItemArray = channelMessage.map((messageObj) => {
-    const element = (
-      <MessageItem
-        messageData={messageObj}
-        key={messageObj.timestamp}
-      />
-    )
-    return element;
-  })
+//   const messageItemArray = channelMessage.map((messageObj) => {
+//     const element = (
+//       <MessageItem
+//         messageData={messageObj}
+//         key={messageObj.timestamp}
+//       />
+//     )
+//     return element;
+//   })
 
 
-  // // original 
-  return (
-    <div className="scrollable-pane">
-      <div className="pt-2 my-2">
-        {/* testing button */}
-        <button className="btn btn-outline-primary mb-3" onClick={handleClick}>
-          Click me!
-        </button>
-        <hr/>
+  // // // original 
+  // return (
+  //   <div className="scrollable-pane">
+  //     <div className="pt-2 my-2">
+  //       {/* testing button */}
+  //       <button className="btn btn-outline-primary mb-3" onClick={handleClick}>
+  //         Click me!
+  //       </button>
+  //       <hr/>
 
-        {/* messages */}
-        {messageItemArray}
-      </div>
-    </div>
-    )
-  }
+  //       {/* messages */}
+  //       {messageItemArray}
+  //     </div>
+  //   </div>
+  //   )
+  // }
 
 //   // Slide 13 - show the button if 'general' is the current channel
 //   return (
@@ -63,30 +63,30 @@ export function ChatPane(props) {
 
 // }
 
-function MessageItem(props) {
-  const { userName, userImg, text } = props.messageData;
-  // const userName = props.messageData.userName;
-  // const userImg = props.messageData.userImg;
+// function MessageItem(props) {
+//   const { userName, userImg, text } = props.messageData;
+//   // const userName = props.messageData.userName;
+//   // const userImg = props.messageData.userImg;
 
-  const handleClick = (event) => {
-    console.log("you liked " + userName + "'s post!");
-  }
+//   const handleClick = (event) => {
+//     console.log("you liked " + userName + "'s post!");
+//   }
 
-  return (
-    <div className="message d-flex mb-3">
-      <div className="me-2">
-        <img src={userImg} alt={userName + "'s avatar"} />
-      </div>
-      <div className="flex-grow-1">
-        <p className="user-name">{userName}</p>
-        <p>{text}</p>
-        <button className="btn like-button" onClick={handleClick}>
-          <span className="material-icons" style={{ color: "grey" }}>favorite_border</span>
-        </button>
-      </div>
-    </div>
-  )
-}
+//   return (
+//     <div className="message d-flex mb-3">
+//       <div className="me-2">
+//         <img src={userImg} alt={userName + "'s avatar"} />
+//       </div>
+//       <div className="flex-grow-1">
+//         <p className="user-name">{userName}</p>
+//         <p>{text}</p>
+//         <button className="btn like-button" onClick={handleClick}>
+//           <span className="material-icons" style={{ color: "grey" }}>favorite_border</span>
+//         </button>
+//       </div>
+//     </div>
+//   )
+// }
 
 
 // // Slide 14 and 16 - conditional rendering and initial event handling
@@ -100,8 +100,9 @@ function MessageItem(props) {
 //   //(trying to update count on button)
 //   let currentCount = 0;
 //   const handleClick = (event) => {
-//     console.log("you clicked me!");
 //     currentCount = currentCount + 1;
+//     console.log("you clicked me!", currentCount);
+    
 //   }
 
 //   //only show current channel messages
@@ -175,6 +176,7 @@ function MessageItem(props) {
 //   // const stateManagementArray = useState(0); //start out at 0 very first time
 //   // const count = stateManagementArray[0];
 //   // const setCount = stateManagementArray[1];
+//   // console.log("stateManagementArray: ", stateManagementArray)
 
 //   //instead destructure
 //   const [count, setCount] = useState(0);
@@ -252,90 +254,90 @@ function MessageItem(props) {
 //   )
 // }
 
-// //Slide 35 (36 and 37) to elevate state to App
-// import React, {useState} from 'react';
+//Slide 35 (36 and 37) to elevate state to App
+import React, {useState} from 'react';
 
-// export function ChatPane(props) {
-// // const [chatMessages, setChatMessages] = useState(CHAT_HISTORY);
-//   const currentChannel = props.currentChannel;
+export function ChatPane(props) {
+// const [chatMessages, setChatMessages] = useState(CHAT_HISTORY);
+  const currentChannel = props.currentChannel;
 
-//   //only show current channel messages
-//   const channelMessages = props.chatMessages.filter((msgObj) => {
-//     return msgObj.channel === currentChannel;
-//   })
+  //only show current channel messages
+  const channelMessages = props.chatMessages.filter((msgObj) => {
+    return msgObj.channel === currentChannel;
+  })
 
-//   const messageItemArray = channelMessages.map((messageObj) => {
-//     const element = (
-//       <MessageItem
-//         messageData={messageObj}
-//         key={messageObj.timestamp}
-//       />
-//     )
-//     return element;
-//   })
+  const messageItemArray = channelMessages.map((messageObj) => {
+    const element = (
+      <MessageItem
+        messageData={messageObj}
+        key={messageObj.timestamp}
+      />
+    )
+    return element;
+  })
 
-// const [count, setCount] = useState(0);
+const [count, setCount] = useState(0);
 
-// console.log('calling chatpane')
+console.log('calling chatpane')
   
-// const handleClick = (event) => {
-//   console.log("you clicked me!");
-//     setCount(count+1);
-//     console.log(count);
-//     // addMessage("Click");
-// }
+const handleClick = (event) => {
+  console.log("you clicked me!");
+    setCount(count+1);
+    console.log(count);
+    // addMessage("Click");
+}
 
 
-// if (channelMessages.length === 0) {
-//   return <p>No Messages Yet</p>
-// }
+if (channelMessages.length === 0) {
+  return <p>No Messages Yet</p>
+}
 
-// return (
-//   <div className="scrollable-pane">
-//     <div className="pt-2 my-2">
-//       {/* testing button */}
-//       <button className="btn btn-outline-primary mb-3" onClick={handleClick}>
-//         Click me: {count}
-//       </button>
-//       <hr />
+return (
+  <div className="scrollable-pane">
+    <div className="pt-2 my-2">
+      {/* testing button */}
+      <button className="btn btn-outline-primary mb-3" onClick={handleClick}>
+        Click me: {count}
+      </button>
+      <hr />
 
-//       {messageItemArray}
-//     </div>
-//   </div>
-// )
+      {messageItemArray}
+    </div>
+  </div>
+)
 
-// }
+}
 
-// function MessageItem(props) {
-// const { userName, userImg, text } = props.messageData;
+function MessageItem(props) {
+const { userName, userImg, text } = props.messageData;
 
-// const [isLiked, setIsLiked ] = useState(false);
+const [isLiked, setIsLiked ] = useState(false);
 
-// const handleClick = (event) => {
-//   setIsLiked(!isLiked);
-//   console.log("you liked " + userName + "'s post!");
-// }
+const handleClick = (event) => {
+  setIsLiked(!isLiked);
+  console.log("you liked " + userName + "'s post!");
+}
 
-// let heartColor = 'grey';
-// if (isLiked){
-//   heartColor = 'red';
-// }
+let heartColor = 'grey';
+if (isLiked){
+  heartColor = 'red';
+}
 
-// return (
-//   <div className="message d-flex mb-3">
-//     <div className="me-2">
-//       <img src={userImg} alt={userName + "'s avatar"} />
-//     </div>
-//     <div className="flex-grow-1">
-//       <p className="user-name">{userName}</p>
-//       <p>{text}</p>
-//       <button className="btn like-button" onClick={handleClick}>
-//         <span className="material-icons" style={{ color: heartColor }}>favorite_border</span>
-//       </button>
-//     </div>
-//   </div>
-// )
-// }
+return (
+  <div className="message d-flex mb-3">
+    <div className="me-2">
+      <img src={userImg} alt={userName + "'s avatar"} />
+    </div>
+    <div className="flex-grow-1">
+      <p className="user-name">{userName}</p>
+      <p>{text}</p>
+      <button className="btn like-button" onClick={handleClick}>
+        <span className="material-icons" style={{ color: heartColor }}>favorite_border</span>
+      </button>
+    </div>
+  </div>
+)
+}
 
 // //Post Lecture, add the Channel navigation (elevate state, etc)
 
