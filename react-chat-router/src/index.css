@@ -8,8 +8,7 @@ html, body, #root, #root>div {
   top: 4px;
 }
 
-/*** Message Pane ***/
-
+/** Messages **/
 .scrollable-pane {
   /* will enable it to scroll content */
   flex: 1 1 auto;
@@ -26,11 +25,12 @@ html, body, #root, #root>div {
 .message p {
   margin: 0;
 }
+
 .message .user-name {
   font-weight: bold;
 }
 
-/* like-buttonn */
+/* like-button */
 .like-button {
   padding: 0;
 }
@@ -40,9 +40,13 @@ html, body, #root, #root>div {
 }
 
 
-/** ChannelNav **/
+/** Channel Nav **/
 .channel-nav ul {
   list-style-type: none;
+}
+
+.channel-nav a {
+  color: white;
 }
 
 /*** Header ***/
@@ -51,15 +55,15 @@ header img {
   border-radius: 50%;
 }
 
-header .user-icon img {
-  margin-right: .5rem;
-
+header button.user-icon {
+  padding: .25rem;
 }
 
 .highlighted {
   border: 3px solid greenyellow;
 }
 
+/* navlinks */
 .bg-primary .nav-link {
   color: white;
 }

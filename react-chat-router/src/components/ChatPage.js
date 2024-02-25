@@ -1,102 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
+import _ from 'lodash';
 
-import { ChannelList } from './ChannelNav.js';
+import { ChannelList } from './ChannelList.js';
 import { ChatPane } from './ChatPane.js';
-import { ComposeForm } from './ComposeForm';
-
-import CHAT_HISTORY from '../data/chat_log.json';
-
-const CHANNEL_LIST = ['general', 'random', 'social', 'birbs', 'channel-5']
 
 export default function ChatPage(props) {
-  const [chatMessages, setChatMessages] = useState(CHAT_HISTORY);
+  const {currentUser, messageArray, addMessageFunction} = props;
+ 
+  const channelNames = ["general", "channel-2", "birds", "dank-memes", "random"];
 
-  const channelList = [
-    'general', 'random', 'dank-memes', 'channel-4', 'pet-pictures'
-  ]
-
-  const currentUser = props.currentUser;
-  const currentChannel = "general";
-
-  const addMessage = (messageText) => {
-    const userObj = currentUser;
-    const newMessage = {
-      "userId": userObj.userId,
-      "userName": userObj.userName,
-      "userImg": userObj.userImg,
-      "text": messageText,
-      "timestamp": Date.now(),
-      "channel": currentChannel
-    } 
-
-    const updateChatMessages = [...chatMessages, newMessage];
-    setChatMessages(updateChatMessages); //update state and re-render
-  }
+  //count how many messages are in each channel (using external library)
+  const channelCounts = _.countBy(messageArray, 'channel')
 
   return (
     <div className="row flex-grow-1">
       <div className="col-3">
-        <ChannelList channels={channelList} currentChannel={currentChannel} />
+      <ChannelList channelNames={channelNames} channelCounts={channelCounts} />
       </div>
       <div className="col d-flex flex-column">
-        <ChatPane chatMessages={chatMessages} currentChannel={currentChannel} />
-        <ComposeForm currentUser={currentUser} addMessageCallback={addMessage} />
+        <ChatPane
+          currentUser={currentUser}
+          messageArray={messageArray}
+          addMessageFunction={addMessageFunction}
+        />
       </div>
     </div>
   )
 }
-
-// //Slide 37 - URL Params
-// import React, { useState } from 'react';
-
-// import { useParams } from 'react-router-dom';
-
-// import { ChannelList } from './ChannelNav.js';
-// import { ChatPane } from './ChatPane.js';
-// import { ComposeForm } from './ComposeForm';
-
-// import CHAT_HISTORY from '../data/chat_log.json';
-
-// const CHANNEL_LIST = ['general', 'random', 'social', 'birbs', 'channel-5']
-
-// export default function ChatPage(props) {
-//   const [chatMessages, setChatMessages] = useState(CHAT_HISTORY);
-
-//   const urlParamsObj = useParams();  //get me the url parameters
-//   console.log(urlParamsObj);
-
-//   const channelList = [
-//     'general', 'random', 'dank-memes', 'channel-4', 'pet-pictures'
-//   ]
-
-//   const currentUser = props.currentUser;
-//   // const currentChannel = "general";
-//   const currentChannel = urlParamsObj.channelName;
-
-//   const addMessage = (messageText) => {
-//     const userObj = currentUser;
-//     const newMessage = {
-//       "userId": userObj.userId,
-//       "userName": userObj.userName,
-//       "userImg": userObj.userImg,
-//       "text": messageText,
-//       "timestamp": Date.now(),
-//       "channel": currentChannel
-//     }
-
-//     const updateChatMessages = [...chatMessages, newMessage];
-//     setChatMessages(updateChatMessages); //update state and re-render
-//   }
-
-//   return (
-//     <div className="row flex-grow-1">
-//       <div className="col-3">
-//         <ChannelList channels={channelList} currentChannel={currentChannel} />
-//       </div>
-//       <div className="col d-flex flex-column">
-//         <ChatPane chatMessages={chatMessages} currentChannel={currentChannel} />
-//         <ComposeForm currentUser={currentUser} addMessageCallback={addMessage} />
-//       </div>
-//     </div>
-//   )
-// }

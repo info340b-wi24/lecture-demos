@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 import { HeaderBar } from './HeaderBar.js';
 
@@ -6,215 +6,49 @@ import ChatPage from './ChatPage';
 import SignInPage from './SignInPage';
 import * as Static from './StaticPages';
 
+import INITIAL_HISTORY from '../data/chat_log.json'
 import DEFAULT_USERS from '../data/users.json';
 
-//A component!
-export default function App(props) {
-  //state
-  const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[1]) //default to null user
+function App(props) {
+  const [messageStateArray, setMessageStateArray] = useState(INITIAL_HISTORY);
+  const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[1]) //initialize;
 
-  const loginUser = (userObj) => {
-    console.log("logging in as", userObj.userName);
-    setCurrentUser(userObj);
+  //STATE MANAGEMENT: how do we change?
+  const addMessage = function(userObj, messageText, channel) {
+    const newMessage = {
+      "userId": userObj.userId,
+      "userName": userObj.userName,
+      "userImg": userObj.userImg,
+      "text": messageText,
+      "timestamp": Date.now(),
+      "channel": channel
+    }
+    const newArray = [...messageStateArray, newMessage];
+    setMessageStateArray(newArray); //update state & re-render
   }
 
-  //what content should my App look like?
+  const changeUser = (newUserObj) => {
+    setCurrentUser(newUserObj);
+  }
+
   return (
     <div className="container-fluid d-flex flex-column">
       <HeaderBar currentUser={currentUser} />
 
-      <ChatPage currentUser={currentUser} />
-      {/* <SignInPage currentUser={currentUser} loginCallback={loginUser} /> */}
-      {/* <Static.WelcomePage /> */}
-      {/* <Static.AboutPage /> */}
-      {/* <Static.ErrorPage /> */}
+      <ChatPage 
+        currentUser={currentUser} 
+        messageArray={messageStateArray}
+        addMessageFunction={addMessage}
+        />
+      {/* <SignInPage currentUser={currentUser} changeUserFunction={changeUser} />
+      <Static.WelcomePage />
+      <Static.AboutPage />
+      <Static.ErrorPage /> */}
 
     </div>
   );
 }
 
-// //Slide 18 - Updating for Routes and Route's
-// import React, { useState } from 'react';
-// import { Routes, Route } from 'react-router-dom';
-// import { HeaderBar } from './HeaderBar.js';
-// import ChatPage from './ChatPage';
-// import SignInPage from './SignInPage';
-// import * as Static from './StaticPages';
-
-// import DEFAULT_USERS from '../data/users.json';
-
-// export default function App(props) {
-//   const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[1])
-
-//   const loginUser = (userObj) => {
-//     setCurrentUser(userObj);
-//   }
-
-//   return (
-
-//     <div className="container-fluid d-flex flex-column">
-
-//       <HeaderBar currentUser={currentUser} />
-//       <Routes>
-//         <Route index element={<Static.WelcomePage />} />
-
-//         <Route path="chat" element={<ChatPage
-//           currentUser={currentUser} />} />
-
-//         <Route path="signin" element={<SignInPage
-//           currentUser={currentUser} loginCallback={loginUser} />} />
-
-//         <Route path="about" element={<Static.AboutPage />} />
-
-//         <Route path="*" element={<Static.ErrorPage />} />
-//       </Routes>
-
-//     </div>
-//   );
-// }
-
-// //Slide 23 - Nesting Routes
-// import React, { useState } from 'react';
-// import { Routes, Route, Outlet } from 'react-router-dom';
-// import { HeaderBar } from './HeaderBar.js';
-// import ChatPage from './ChatPage';
-// import SignInPage from './SignInPage';
-// import * as Static from './StaticPages';
-
-// import DEFAULT_USERS from '../data/users.json';
-
-// export default function App(props) {
-//   const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[1])
-
-//   const loginUser = (userObj) => {
-//     setCurrentUser(userObj);
-//   }
-
-//   return (
-
-//     <div className="container-fluid d-flex flex-column">
-
-//       {/* <HeaderBar currentUser={currentUser} /> */}
-//       <Routes>
-//         <Route index element={<Static.WelcomePage />} />
-//         <Route path="app" element={<AppLayout currentUser={currentUser} />}>
-//           <Route path="chat" element={<ChatPage currentUser={currentUser} />} />
-//           <Route path="signin" element={<SignInPage
-//             currentUser={currentUser} loginCallback={loginUser} />} />
-//           <Route path="about" element={<Static.AboutPage />} />
-//           <Route path="*" element={<Static.ErrorPage />} />
-//         </Route>
-//       </Routes>
-
-//     </div>
-//   );
-// }
-
-// function AppLayout(props) {
-//   return (
-//     <>
-//       <HeaderBar currentUser={props.currentUser} />
-//       <Outlet />
-//     </>
-//   )
-// }
-
-// //Slide 27 - Protected Routes
-// import React, { useState } from 'react';
-// import { Routes, Route, Outlet } from 'react-router-dom';
-// import { HeaderBar } from './HeaderBar.js';
-// import ChatPage from './ChatPage';
-// import SignInPage from './SignInPage';
-// import * as Static from './StaticPages';
-
-// import DEFAULT_USERS from '../data/users.json';
-
-// export default function App(props) {
-//   const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[1])
-
-//   const loginUser = (userObj) => {
-//     setCurrentUser(userObj);
-//   }
-
-//   return (
-
-//     <div className="container-fluid d-flex flex-column">
-
-//       <HeaderBar currentUser={currentUser} />
-//       <Routes>
-//         <Route index element={<Static.WelcomePage />} />
-//         <Route path="about" element={<Static.AboutPage />} />
-//         <Route path="*" element={<Static.ErrorPage />} />
-//         <Route path="signin" element={<SignInPage
-//             currentUser={currentUser} loginCallback={loginUser} />} />
-
-//         <Route element={<RequireAuth currentUser={currentUser} />}>
-//           <Route path="chat" element={<ChatPage currentUser={currentUser} />} />
-
-//         </Route>
-//       </Routes>
-
-//     </div>
-//   );
-// }
 
 
-// function RequireAuth(props){
-//    //...determine if user is logged in
-//    if(props.currentUser.userId === null) { //if no user, say so
-//     return <p>Forbidden!</p>
-//   }
-//   else { //otherwise, show the child route content
-//     return <Outlet />
-//   }
-// }
-
-// //Slide 36 - Url Params
-// import React, { useState } from 'react';
-// import { Routes, Route, Outlet } from 'react-router-dom';
-// import { HeaderBar } from './HeaderBar.js';
-// import ChatPage from './ChatPage';
-// import SignInPage from './SignInPage';
-// import * as Static from './StaticPages';
-
-// import DEFAULT_USERS from '../data/users.json';
-
-// export default function App(props) {
-//   const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[1])
-
-//   const loginUser = (userObj) => {
-//     setCurrentUser(userObj);
-//   }
-
-//   return (
-
-//     <div className="container-fluid d-flex flex-column">
-
-//       <HeaderBar currentUser={currentUser} />
-//       <Routes>
-//         <Route index element={<Static.WelcomePage />} />
-//         <Route path="about" element={<Static.AboutPage />} />
-//         <Route path="*" element={<Static.ErrorPage />} />
-//         <Route path="signin" element={<SignInPage
-//             currentUser={currentUser} loginCallback={loginUser} />} />
-
-//         <Route element={<RequireAuth currentUser={currentUser} />}>
-//           <Route path="chat/:channelName" element={<ChatPage currentUser={currentUser} />} />
-//           <Route path="chat" element={<ChatPage currentUser={currentUser} />} />
-//         </Route>
-//       </Routes>
-
-//     </div>
-//   );
-// }
-
-
-// function RequireAuth(props){
-//    //...determine if user is logged in
-//    if(props.currentUser.userId === null) { //if no user, say so
-//     return <p>Forbidden!</p>
-//   }
-//   else { //otherwise, show the child route content
-//     return <Outlet />
-//   }
-// }
+export default App;
