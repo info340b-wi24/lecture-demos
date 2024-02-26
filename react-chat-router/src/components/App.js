@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
-
 import { HeaderBar } from './HeaderBar.js';
-
 import ChatPage from './ChatPage';
 import SignInPage from './SignInPage';
 import * as Static from './StaticPages';

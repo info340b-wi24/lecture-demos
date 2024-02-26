@@ -9,13 +9,15 @@ export default function ChatPage(props) {
  
   const channelNames = ["general", "channel-2", "birds", "dank-memes", "random"];
 
+  const currentChannel = "general";
+
   //count how many messages are in each channel (using external library)
   const channelCounts = _.countBy(messageArray, 'channel')
 
   return (
     <div className="row flex-grow-1">
       <div className="col-3">
-      <ChannelList channelNames={channelNames} channelCounts={channelCounts} />
+      <ChannelList channelNames={channelNames} channelCounts={channelCounts} currentChannel={currentChannel} />
       </div>
       <div className="col d-flex flex-column">
         <ChatPane
