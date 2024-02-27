@@ -1,9 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export function ChannelList(props) {
   const { channelNames, channelCounts } = props;
 
   const currentChannel = props.currentChannel;
+  console.log("current channel in the channellist :", currentChannel)
 
 
   //render the links
@@ -18,13 +20,13 @@ export function ChannelList(props) {
 
     return (
       <div key={channelNameString} >
-        <a
+        <Link
           className={classList}
           name={channelNameString}
-          href={"/" + channelNameString}
+          to={"/chat/" + channelNameString}
         >
           {channelNameString} ({count})
-        </a>
+        </Link>
       </div>
     );
   })

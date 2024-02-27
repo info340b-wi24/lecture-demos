@@ -103,7 +103,184 @@
 
 // Example slide 19, use index and * catchall in the route list
 
-// Slide 18 Example - Add Routes/Route
+
+// import React, { useState } from 'react';
+// import { HeaderBar } from './HeaderBar.js';
+// import ChatPage from './ChatPage';
+// import SignInPage from './SignInPage';
+// import * as Static from './StaticPages';
+
+// import { Routes, Route } from "react-router-dom";
+
+// import INITIAL_HISTORY from '../data/chat_log.json'
+// import DEFAULT_USERS from '../data/users.json';
+
+// function App(props) {
+//   const [messageStateArray, setMessageStateArray] = useState(INITIAL_HISTORY);
+//   const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[1]) //initialize;
+
+//   //STATE MANAGEMENT: how do we change?
+//   const addMessage = function (userObj, messageText, channel) {
+//     const newMessage = {
+//       "userId": userObj.userId,
+//       "userName": userObj.userName,
+//       "userImg": userObj.userImg,
+//       "text": messageText,
+//       "timestamp": Date.now(),
+//       "channel": channel
+//     }
+//     const newArray = [...messageStateArray, newMessage];
+//     setMessageStateArray(newArray); //update state & re-render
+//   }
+
+//   const changeUser = (newUserObj) => {
+//     setCurrentUser(newUserObj);
+//   }
+
+//   return (
+//     <div className="container-fluid d-flex flex-column">
+//       <HeaderBar currentUser={currentUser} />
+//       <Routes>
+//         <Route index element={<Static.WelcomePage />} />
+//         <Route path="chat" element={<ChatPage
+//           currentUser={currentUser}
+//           messageArray={messageStateArray}
+//           addMessageFunction={addMessage}
+//         />} />
+
+//         <Route path="signin" element={<SignInPage currentUser={currentUser} changeUserFunction={changeUser} />} />
+//         <Route path="about" element={<Static.AboutPage />} />
+//         <Route path="*" element={<Static.ErrorPage />} />
+//       </Routes>
+//     </div>
+//   );
+// }
+
+// // Slide 23 Example - Nesting Routes
+
+// import React, { useState } from 'react';
+// import { HeaderBar } from './HeaderBar.js';
+// import ChatPage from './ChatPage';
+// import SignInPage from './SignInPage';
+// import * as Static from './StaticPages';
+
+// import { Routes, Route, Outlet} from "react-router-dom";
+
+// import INITIAL_HISTORY from '../data/chat_log.json'
+// import DEFAULT_USERS from '../data/users.json';
+
+// function App(props) {
+//   const [messageStateArray, setMessageStateArray] = useState(INITIAL_HISTORY);
+//   const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[1]) //initialize;
+
+//   //STATE MANAGEMENT: how do we change?
+//   const addMessage = function (userObj, messageText, channel) {
+//     const newMessage = {
+//       "userId": userObj.userId,
+//       "userName": userObj.userName,
+//       "userImg": userObj.userImg,
+//       "text": messageText,
+//       "timestamp": Date.now(),
+//       "channel": channel
+//     }
+//     const newArray = [...messageStateArray, newMessage];
+//     setMessageStateArray(newArray); //update state & re-render
+//   }
+
+//   const changeUser = (newUserObj) => {
+//     setCurrentUser(newUserObj);
+//   }
+
+//   return (
+//     <div className="container-fluid d-flex flex-column">
+//       {/* <HeaderBar currentUser={currentUser} /> */}
+//       <Routes>
+//         <Route index element={<Static.WelcomePage />} />
+//         <Route path="app" element={<AppLayout currentUser={currentUser} messageArray= {messageStateArray} addMessageFunction={addMessage} />}>
+        
+//           <Route path="chat" element={<ChatPage currentUser={currentUser} messageArray={messageStateArray} addMessageFunction={addMessage} />} />
+//           <Route path="signin" element={<SignInPage currentUser={currentUser} changeUserFunction={changeUser} />} />
+//           <Route path="about" element={<Static.AboutPage />} />
+//           <Route path="*" element={<Static.ErrorPage />} />
+
+//         </Route>
+//       </Routes>
+//     </div>
+//   );
+// }
+
+// function AppLayout(props) {
+//   return (
+//     <>
+//       <HeaderBar currentUser={props.currentUser} />
+//       <Outlet />
+//     </>
+//   )
+// }
+
+
+// // Example slide 27 nesting Routes for Authentication (got rid of the app subcomponent from prev example)
+
+
+// import React, { useState } from 'react';
+// import { HeaderBar } from './HeaderBar.js';
+// import ChatPage from './ChatPage';
+// import SignInPage from './SignInPage';
+// import * as Static from './StaticPages';
+
+// import { Routes, Route, Outlet } from "react-router-dom";
+
+// import INITIAL_HISTORY from '../data/chat_log.json'
+// import DEFAULT_USERS from '../data/users.json';
+
+// function App(props) {
+//   const [messageStateArray, setMessageStateArray] = useState(INITIAL_HISTORY);
+//   const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[1]) //initialize;
+
+//   //STATE MANAGEMENT: how do we change?
+//   const addMessage = function (userObj, messageText, channel) {
+//     const newMessage = {
+//       "userId": userObj.userId,
+//       "userName": userObj.userName,
+//       "userImg": userObj.userImg,
+//       "text": messageText,
+//       "timestamp": Date.now(),
+//       "channel": channel
+//     }
+//     const newArray = [...messageStateArray, newMessage];
+//     setMessageStateArray(newArray); //update state & re-render
+//   }
+
+//   const changeUser = (newUserObj) => {
+//     setCurrentUser(newUserObj);
+//   }
+
+//   return (
+//     <div className="container-fluid d-flex flex-column">
+//       <HeaderBar currentUser={currentUser} />
+//       <Routes>
+//         <Route index element={<Static.WelcomePage />} />
+//         <Route path="signin" element={<SignInPage currentUser={currentUser} changeUserFunction={changeUser} />} />
+//         <Route path="about" element={<Static.AboutPage />} />
+//         <Route path="*" element={<Static.ErrorPage />} />
+//         <Route element={<RequireAuth currentUser={currentUser} messageArray={messageStateArray} addMessageFunction={addMessage} />}>
+//           <Route path="chat" element={<ChatPage currentUser={currentUser} messageArray={messageStateArray} addMessageFunction={addMessage} />} />
+//         </Route>
+//       </Routes>
+//     </div>
+//   );
+// }
+
+// function RequireAuth(props){
+//   if(props.currentUser.userId === null) { //if no user, say so
+//    return <p>Forbidden!</p>
+//  }
+//  else { //otherwise, show the child route content
+//    return <Outlet />
+//  }
+// }
+
+// Example slide 36 URL Params
 
 import React, { useState } from 'react';
 import { HeaderBar } from './HeaderBar.js';
@@ -111,7 +288,7 @@ import ChatPage from './ChatPage';
 import SignInPage from './SignInPage';
 import * as Static from './StaticPages';
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
 
 import INITIAL_HISTORY from '../data/chat_log.json'
 import DEFAULT_USERS from '../data/users.json';
@@ -143,19 +320,25 @@ function App(props) {
       <HeaderBar currentUser={currentUser} />
       <Routes>
         <Route index element={<Static.WelcomePage />} />
-        <Route path="chat" element={<ChatPage
-          currentUser={currentUser}
-          messageArray={messageStateArray}
-          addMessageFunction={addMessage}
-        />} />
-
         <Route path="signin" element={<SignInPage currentUser={currentUser} changeUserFunction={changeUser} />} />
         <Route path="about" element={<Static.AboutPage />} />
         <Route path="*" element={<Static.ErrorPage />} />
+        <Route element={<RequireAuth currentUser={currentUser} messageArray={messageStateArray} addMessageFunction={addMessage} />}>
+          <Route path="chat/:channelName" element={<ChatPage currentUser={currentUser} messageArray={messageStateArray} addMessageFunction={addMessage} />} />
+          <Route path="chat" element={<ChatPage currentUser={currentUser} messageArray={messageStateArray} addMessageFunction={addMessage} />} />
+        </Route>
       </Routes>
     </div>
   );
 }
 
+function RequireAuth(props){
+  if(props.currentUser.userId === null) { //if no user, say so
+   return <p>Forbidden!</p>
+ }
+ else { //otherwise, show the child route content
+   return <Outlet />
+ }
+}
 
 export default App;
