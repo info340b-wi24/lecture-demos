@@ -1,51 +1,51 @@
-// import React, {useState} from 'react';
-// import { HeaderBar } from './HeaderBar.js';
-// import ChatPage from './ChatPage';
-// import SignInPage from './SignInPage';
-// import * as Static from './StaticPages';
+import React, {useState} from 'react';
+import { HeaderBar } from './HeaderBar.js';
+import ChatPage from './ChatPage';
+import SignInPage from './SignInPage';
+import * as Static from './StaticPages';
 
-// import INITIAL_HISTORY from '../data/chat_log.json'
-// import DEFAULT_USERS from '../data/users.json';
+import INITIAL_HISTORY from '../data/chat_log.json'
+import DEFAULT_USERS from '../data/users.json';
 
-// function App(props) {
-//   const [messageStateArray, setMessageStateArray] = useState(INITIAL_HISTORY);
-//   const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[1]) //initialize;
+function App(props) {
+  const [messageStateArray, setMessageStateArray] = useState(INITIAL_HISTORY);
+  const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[1]) //initialize;
 
-//   //STATE MANAGEMENT: how do we change?
-//   const addMessage = function(userObj, messageText, channel) {
-//     const newMessage = {
-//       "userId": userObj.userId,
-//       "userName": userObj.userName,
-//       "userImg": userObj.userImg,
-//       "text": messageText,
-//       "timestamp": Date.now(),
-//       "channel": channel
-//     }
-//     const newArray = [...messageStateArray, newMessage];
-//     setMessageStateArray(newArray); //update state & re-render
-//   }
+  //STATE MANAGEMENT: how do we change?
+  const addMessage = function(userObj, messageText, channel) {
+    const newMessage = {
+      "userId": userObj.userId,
+      "userName": userObj.userName,
+      "userImg": userObj.userImg,
+      "text": messageText,
+      "timestamp": Date.now(),
+      "channel": channel
+    }
+    const newArray = [...messageStateArray, newMessage];
+    setMessageStateArray(newArray); //update state & re-render
+  }
 
-//   const changeUser = (newUserObj) => {
-//     setCurrentUser(newUserObj);
-//   }
+  const changeUser = (newUserObj) => {
+    setCurrentUser(newUserObj);
+  }
 
-//   return (
-//     <div className="container-fluid d-flex flex-column">
-//       <HeaderBar currentUser={currentUser} />
+  return (
+    <div className="container-fluid d-flex flex-column">
+      <HeaderBar currentUser={currentUser} />
 
-//       <ChatPage 
-//         currentUser={currentUser} 
-//         messageArray={messageStateArray}
-//         addMessageFunction={addMessage}
-//         />
-//       {/* <SignInPage currentUser={currentUser} changeUserFunction={changeUser} />
-//       <Static.WelcomePage />
-//       <Static.AboutPage />
-//       <Static.ErrorPage /> */}
+      <ChatPage 
+        currentUser={currentUser} 
+        messageArray={messageStateArray}
+        addMessageFunction={addMessage}
+        />
+      {/* <SignInPage currentUser={currentUser} changeUserFunction={changeUser} />
+      <Static.WelcomePage />
+      <Static.AboutPage />
+      <Static.ErrorPage /> */}
 
-//     </div>
-//   );
-// }
+    </div>
+  );
+}
 
 // // Slide 18 Example - Add Routes/Route
 
@@ -101,8 +101,8 @@
 //   );
 // }
 
-// Example slide 19, use index and * catchall in the route list
 
+// // Example slide 19, use index and * catchall in the route list
 
 // import React, { useState } from 'react';
 // import { HeaderBar } from './HeaderBar.js';
@@ -280,65 +280,65 @@
 //  }
 // }
 
-// Example slide 36 URL Params
+// // Example slide 36 URL Params
 
-import React, { useState } from 'react';
-import { HeaderBar } from './HeaderBar.js';
-import ChatPage from './ChatPage';
-import SignInPage from './SignInPage';
-import * as Static from './StaticPages';
+// import React, { useState } from 'react';
+// import { HeaderBar } from './HeaderBar.js';
+// import ChatPage from './ChatPage';
+// import SignInPage from './SignInPage';
+// import * as Static from './StaticPages';
 
-import { Routes, Route, Outlet } from "react-router-dom";
+// import { Routes, Route, Outlet } from "react-router-dom";
 
-import INITIAL_HISTORY from '../data/chat_log.json'
-import DEFAULT_USERS from '../data/users.json';
+// import INITIAL_HISTORY from '../data/chat_log.json'
+// import DEFAULT_USERS from '../data/users.json';
 
-function App(props) {
-  const [messageStateArray, setMessageStateArray] = useState(INITIAL_HISTORY);
-  const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[1]) //initialize;
+// function App(props) {
+//   const [messageStateArray, setMessageStateArray] = useState(INITIAL_HISTORY);
+//   const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[1]) //initialize;
 
-  //STATE MANAGEMENT: how do we change?
-  const addMessage = function (userObj, messageText, channel) {
-    const newMessage = {
-      "userId": userObj.userId,
-      "userName": userObj.userName,
-      "userImg": userObj.userImg,
-      "text": messageText,
-      "timestamp": Date.now(),
-      "channel": channel
-    }
-    const newArray = [...messageStateArray, newMessage];
-    setMessageStateArray(newArray); //update state & re-render
-  }
+//   //STATE MANAGEMENT: how do we change?
+//   const addMessage = function (userObj, messageText, channel) {
+//     const newMessage = {
+//       "userId": userObj.userId,
+//       "userName": userObj.userName,
+//       "userImg": userObj.userImg,
+//       "text": messageText,
+//       "timestamp": Date.now(),
+//       "channel": channel
+//     }
+//     const newArray = [...messageStateArray, newMessage];
+//     setMessageStateArray(newArray); //update state & re-render
+//   }
 
-  const changeUser = (newUserObj) => {
-    setCurrentUser(newUserObj);
-  }
+//   const changeUser = (newUserObj) => {
+//     setCurrentUser(newUserObj);
+//   }
 
-  return (
-    <div className="container-fluid d-flex flex-column">
-      <HeaderBar currentUser={currentUser} />
-      <Routes>
-        <Route index element={<Static.WelcomePage />} />
-        <Route path="signin" element={<SignInPage currentUser={currentUser} changeUserFunction={changeUser} />} />
-        <Route path="about" element={<Static.AboutPage />} />
-        <Route path="*" element={<Static.ErrorPage />} />
-        <Route element={<RequireAuth currentUser={currentUser} messageArray={messageStateArray} addMessageFunction={addMessage} />}>
-          <Route path="chat/:channelName" element={<ChatPage currentUser={currentUser} messageArray={messageStateArray} addMessageFunction={addMessage} />} />
-          <Route path="chat" element={<ChatPage currentUser={currentUser} messageArray={messageStateArray} addMessageFunction={addMessage} />} />
-        </Route>
-      </Routes>
-    </div>
-  );
-}
+//   return (
+//     <div className="container-fluid d-flex flex-column">
+//       <HeaderBar currentUser={currentUser} />
+//       <Routes>
+//         <Route index element={<Static.WelcomePage />} />
+//         <Route path="signin" element={<SignInPage currentUser={currentUser} changeUserFunction={changeUser} />} />
+//         <Route path="about" element={<Static.AboutPage />} />
+//         <Route path="*" element={<Static.ErrorPage />} />
+//         <Route element={<RequireAuth currentUser={currentUser} messageArray={messageStateArray} addMessageFunction={addMessage} />}>
+//           <Route path="chat/:channelName" element={<ChatPage currentUser={currentUser} messageArray={messageStateArray} addMessageFunction={addMessage} />} />
+//           <Route path="chat" element={<ChatPage currentUser={currentUser} messageArray={messageStateArray} addMessageFunction={addMessage} />} />
+//         </Route>
+//       </Routes>
+//     </div>
+//   );
+// }
 
-function RequireAuth(props){
-  if(props.currentUser.userId === null) { //if no user, say so
-   return <p>Forbidden!</p>
- }
- else { //otherwise, show the child route content
-   return <Outlet />
- }
-}
+// function RequireAuth(props){
+//   if(props.currentUser.userId === null) { //if no user, say so
+//    return <p>Forbidden!</p>
+//  }
+//  else { //otherwise, show the child route content
+//    return <Outlet />
+//  }
+// }
 
 export default App;
