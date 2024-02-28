@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 //example GitHub repo data
 const EXAMPLE_DATA = [
@@ -17,19 +17,19 @@ function App(props) {
     setQueryInput(event.target.value);
   }
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
 
-    //do something with form input!
+  //   //do something with form input!
 
-  }
+  // }
 
   //render the data
   const dataElemArray = stateData.map((repo) => {
     return <li key={repo.html_url}><a href={repo.html_url}>{repo.full_name}</a></li>
   })
 
-  console.log("rendering content");
+  // console.log("rendering content");
 
   return (
     <div className="container">
@@ -53,8 +53,6 @@ function App(props) {
     </div>
   )
 }
-
-
 
 export default App;
 
@@ -84,7 +82,7 @@ export default App;
 
 //     //do something with form input!
 //     // const URL = "https://api.github.com/search/repositories?q+"+queryInput+"react&sort=stars";
-//     const URL = "https://api.github.com/search/repositories?q="+queryInput+"react&sort=stars";
+//     const URL = "https://api.github.com/search/repositories?q="+queryInput+"&sort=stars";
 
 //     fetch(URL)
 //       .then(function (response) {
@@ -132,7 +130,7 @@ export default App;
 
 
 // //Slide 28
-// import React, { useState } from 'react';
+// import React, { useState, useEffect } from 'react';
 
 // //example GitHub repo data
 // const EXAMPLE_DATA = [
@@ -156,7 +154,7 @@ export default App;
 
 //     //do something with form input!
 //     // const URL = "https://api.github.com/search/repositories?q+"+queryInput+"react&sort=stars";
-//     const URL = "https://api.github.com/search/repositories?q="+queryInput+"react&sort=stars";
+//     const URL = "https://api.github.com/search/repositories?q="+queryInput+"&sort=stars";
 
 //     fetch(URL)
 //       .then(function (response) {
@@ -239,8 +237,8 @@ export default App;
 //     event.preventDefault();
 
 //     //do something with form input!
-//     // const URL = "https://api.github.com/search/repositories?q+"+queryInput+"react&sort=stars";
-//     const URL = "https://api.github.com/search/repositories?q=" + queryInput + "react&sort=stars";
+//     // const URL = "https://api.github.com/search/repositories?q+"+queryInput+"&sort=stars";
+//     const URL = "https://api.github.com/search/repositories?q=" + queryInput + "&sort=stars";
 
 //     fetch(URL)
 //       .then(function (response) {
@@ -286,6 +284,8 @@ export default App;
 
 // export default App;
 
+
+
 // //Slide 30 - example with catch block
 // import React, { useState, useEffect } from 'react';
 
@@ -323,8 +323,8 @@ export default App;
 //     event.preventDefault();
 
 //     //do something with form input!
-//     const URL = "https://api.github.com/search/repositories?q=" + queryInput + "react&sort=stars";
-//     // const URL = "ata.json";
+//     const URL = "https://api.github.com/search/repositories?q=" + queryInput + "&sort=stars";
+//     //  const URL = "ata.json";
 
     
 //     fetch(URL)
@@ -339,10 +339,24 @@ export default App;
 //       .catch((error) => {
 //         console.log("In the catch block: ", error)
 //       })
+
+//       // fetch(URL)
+//       // .then(function (response) {
+//       //   const dataPromise = response.json()
+//       //   return dataPromise;
+//       // })
+//       // .then(function (data) {
+//       //   console.log("data", data);
+//       //   setStateData(data.items);
+//       // })
+//       // .catch((error) => {
+//       //   console.log("In the catch block: ", error)
+//       // })
+//       // .then(() => {
+//       //   console.log("in the finally then block:")
+//       // })
   
 // }
-
-
 
 //   //render the data
 //   const dataElemArray = stateData.map((repo) => {

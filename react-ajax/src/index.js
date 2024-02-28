@@ -32,12 +32,13 @@ root.render(<App />);
 
 // console.log("request sent");
 
-
 // //render the root
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<App />);
 
-// //Slide 18
+
+
+// //Slide 19
 
 // import React from 'react';
 // import ReactDOM from 'react-dom/client';
@@ -90,11 +91,10 @@ root.render(<App />);
    
 // })
 
-
-
 // //render the root
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<App />);
+
 
 
 // //Slide 26
@@ -109,7 +109,6 @@ root.render(<App />);
 
 // const URL = "https://api.github.com/search/repositories?q=react&sort=stars";
 
-
 // fetch (URL)
 //     .then(function(response) {
 //        const dataPromise = response.json() 
@@ -119,10 +118,10 @@ root.render(<App />);
 //         console.log("data", data);
 //     })
 
+// //render the root
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<App />); 
 
-// // //render the root
-// // const root = ReactDOM.createRoot(document.getElementById('root'));
-// // root.render(<App />); 
 
 // //Slide 32
 
