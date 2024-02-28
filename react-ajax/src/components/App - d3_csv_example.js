@@ -36,7 +36,7 @@ function App(props) {
         event.preventDefault();
 
         //do something with form input!
-        const URL = "https://api.github.com/search/repositories?q=" + queryInput + "react&sort=stars";
+        const URL = "https://api.github.com/search/repositories?q=" + queryInput + "&sort=stars";
         // const URL = "ata.json";
 
 
