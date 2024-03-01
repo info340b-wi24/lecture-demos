@@ -1,15 +1,15 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-// import 'bootstrap/dist/css/bootstrap.css';
-// import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 
-// import App from './components/App.js';
+import App from './components/App.js';
 
 
-// //render the root
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<App />);
+//render the root
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
 
 
 // // Slide 15
@@ -56,7 +56,7 @@
 
 // aPromise.then(function(response) {
 //     console.log("response from Promise ", response);
-//     console.log("response received");
+    
 // })
 
 // console.log("request sent");
@@ -97,32 +97,32 @@
 // root.render(<App />);
 
 
-//Slide 26
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.css';
-import './index.css';
+// //Slide 26
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import 'bootstrap/dist/css/bootstrap.css';
+// import './index.css';
 
-import App from './components/App.js';
+// import App from './components/App.js';
 
-import 'whatwg-fetch' //load the polyfill we just installed via npm
+// import 'whatwg-fetch' //load the polyfill we just installed via npm
 
-const URL = "https://api.github.com/search/repositories?q=react&sort=stars";
-
-
-fetch (URL)
-    .then(function(response) {
-       const dataPromise = response.json() 
-       return dataPromise;
-    })
-    .then (function(data) {
-        console.log("data", data);
-    })
+// const URL = "https://api.github.com/search/repositories?q=react&sort=stars";
 
 
-//render the root
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />); 
+// fetch (URL)
+//     .then(function(response) {
+//        const dataPromise = response.json() 
+//        return dataPromise;
+//     })
+//     .then (function(data) {
+//         console.log("data", data);
+//     })
+
+
+// //render the root
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<App />); 
 
 // //Slide 32
 
