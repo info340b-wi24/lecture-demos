@@ -267,7 +267,7 @@ export default function ChatPage(props) {
 // // Slide 30
 // import React, { useState, useEffect } from 'react';
 // import { useParams } from 'react-router-dom';
-// import { getDatabase, ref, set as firebaseSet, onValue, push as FirebasePush} from 'firebase/database'; 
+// import { getDatabase, ref, onValue, push as FirebasePush} from 'firebase/database'; 
 // import { ChannelList } from './ChannelNav.js';
 // import { ChatPane } from './ChatPane.js';
 // import { ComposeForm } from './ComposeForm';

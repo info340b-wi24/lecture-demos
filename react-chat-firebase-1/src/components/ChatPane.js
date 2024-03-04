@@ -205,11 +205,10 @@ function MessageItem(props) {
 //     firebaseSet(messageRef, "You clicked me!");
 
 //     const profFirstNameRef = ref(db, "professor/firstName")
-//     firebaseSet(profFirstNameRef, "Timothy");
+//     firebaseSet(profFirstNameRef, "Tim");
 
 //     const profCourseRef = ref(db, "professor/courseNumber");
 //     firebaseSet(profCourseRef, "INFO 340");
-
 
 //   }
 
