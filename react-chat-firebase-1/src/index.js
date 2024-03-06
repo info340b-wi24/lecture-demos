@@ -10,6 +10,7 @@ import './index.css';
 
 import App from './components/App';
 
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -17,17 +18,16 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCatDJuMOA_W1UNeBvbcPjI2yPU95cIA5Q",
-  authDomain: "info340bwi24-test2-27-24.firebaseapp.com",
-  databaseURL: "https://info340bwi24-test2-27-24-default-rtdb.firebaseio.com",
-  projectId: "info340bwi24-test2-27-24",
-  storageBucket: "info340bwi24-test2-27-24.appspot.com",
-  messagingSenderId: "1038383113335",
-  appId: "1:1038383113335:web:bd223cf41b00800cc51272"
+  apiKey: "AIzaSyB3EmNs14j9237OL89MnZAEX5qFF3omRHE",
+  authDomain: "chatinfo340bwi24.firebaseapp.com",
+  projectId: "chatinfo340bwi24",
+  storageBucket: "chatinfo340bwi24.appspot.com",
+  messagingSenderId: "944233255891",
+  appId: "1:944233255891:web:fa5804b9072789d5781526"
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

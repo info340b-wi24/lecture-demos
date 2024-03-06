@@ -1,55 +1,55 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { ChannelList } from './ChannelNav.js';
-import { ChatPane } from './ChatPane.js';
-import { ComposeForm } from './ComposeForm';
+// import React, { useState } from 'react';
+// import { useParams } from 'react-router-dom';
+// import { ChannelList } from './ChannelNav.js';
+// import { ChatPane } from './ChatPane.js';
+// import { ComposeForm } from './ComposeForm';
 
-import CHAT_HISTORY from '../data/chat_log.json';
+// import CHAT_HISTORY from '../data/chat_log.json';
 
-const CHANNEL_LIST = ['general', 'random', 'social', 'birbs', 'channel-5']
+// const CHANNEL_LIST = ['general', 'random', 'social', 'birbs', 'channel-5']
 
-export default function ChatPage(props) {
-  const [chatMessages, setChatMessages] = useState(CHAT_HISTORY);
+// export default function ChatPage(props) {
+//   const [chatMessages, setChatMessages] = useState(CHAT_HISTORY);
 
-  const urlParamObj = useParams(); //get me the url parameters
+//   const urlParamObj = useParams(); //get me the url parameters
 
-  const channelList = [
-    'general', 'random', 'dank-memes', 'channel-4', 'pet-pictures'
-  ]
+//   const channelList = [
+//     'general', 'random', 'dank-memes', 'channel-4', 'pet-pictures'
+//   ]
 
-  const currentUser = props.currentUser;
-  const currentChannel = urlParamObj.channelName; //get channel name from url params
-
-
-  const addMessage = (messageText) => {
-    const userObj = currentUser;
-    const newMessage = {
-      "userId": userObj.userId,
-      "userName": userObj.userName,
-      "userImg": userObj.userImg,
-      "text": messageText,
-      "timestamp": Date.now(),
-      "channel": currentChannel
-    } 
-
-    const updateChatMessages = [...chatMessages, newMessage];
-    setChatMessages(updateChatMessages); //update state and re-render
-  }
+//   const currentUser = props.currentUser;
+//   const currentChannel = urlParamObj.channelName; //get channel name from url params
 
 
-  return (
-    <div className="row flex-grow-1">
-      <div className="col-3">
-        <ChannelList channels={channelList} currentChannel={currentChannel} />
-      </div>
-      <div className="col d-flex flex-column">
-        <ChatPane chatMessages={chatMessages} currentChannel={currentChannel} />
-        <ComposeForm currentUser={currentUser} addMessageCallback={addMessage} />
-      </div>
-    </div>
-  )
+//   const addMessage = (messageText) => {
+//     const userObj = currentUser;
+//     const newMessage = {
+//       "userId": userObj.userId,
+//       "userName": userObj.userName,
+//       "userImg": userObj.userImg,
+//       "text": messageText,
+//       "timestamp": Date.now(),
+//       "channel": currentChannel
+//     } 
 
-}
+//     const updateChatMessages = [...chatMessages, newMessage];
+//     setChatMessages(updateChatMessages); //update state and re-render
+//   }
+
+
+//   return (
+//     <div className="row flex-grow-1">
+//       <div className="col-3">
+//         <ChannelList channels={channelList} currentChannel={currentChannel} />
+//       </div>
+//       <div className="col d-flex flex-column">
+//         <ChatPane chatMessages={chatMessages} currentChannel={currentChannel} />
+//         <ComposeForm currentUser={currentUser} addMessageCallback={addMessage} />
+//       </div>
+//     </div>
+//   )
+
+// }
 
 // //Slide 21
 
@@ -264,89 +264,89 @@ export default function ChatPage(props) {
 
 // }
 
-// // Slide 30
-// import React, { useState, useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
-// import { getDatabase, ref, onValue, push as FirebasePush} from 'firebase/database'; 
-// import { ChannelList } from './ChannelNav.js';
-// import { ChatPane } from './ChatPane.js';
-// import { ComposeForm } from './ComposeForm';
+// Slide 30
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { getDatabase, ref, onValue, push as FirebasePush} from 'firebase/database'; 
+import { ChannelList } from './ChannelNav.js';
+import { ChatPane } from './ChatPane.js';
+import { ComposeForm } from './ComposeForm';
 
-// const CHANNEL_LIST = ['general', 'random', 'social', 'birbs', 'channel-5']
+const CHANNEL_LIST = ['general', 'random', 'social', 'birbs', 'channel-5']
 
-// export default function ChatPage(props) {
-//   const [chatMessages, setChatMessages] = useState([]);
+export default function ChatPage(props) {
+  const [chatMessages, setChatMessages] = useState([]);
 
-//   const urlParamObj = useParams(); //get me the url parameters
+  const urlParamObj = useParams(); //get me the url parameters
 
-//   const channelList = [
-//     'general', 'random', 'dank-memes', 'channel-4', 'pet-pictures'
-//   ]
+  const channelList = [
+    'general', 'random', 'dank-memes', 'channel-4', 'pet-pictures'
+  ]
 
-//   const currentUser = props.currentUser;
-//   const currentChannel = urlParamObj.channelName; //get channel name from url params
+  const currentUser = props.currentUser;
+  const currentChannel = urlParamObj.channelName; //get channel name from url params
 
-//   const db = getDatabase();
-//   const allMessagesRef = ref(db, "allMessages");
+  const db = getDatabase();
+  const allMessagesRef = ref(db, "allMessages");
   
-//   useEffect(() => {
+  useEffect(() => {
     
-//       const offFunction = onValue(allMessagesRef, function(snapshot) {
-//       const allMessagesObj = snapshot.val();
-//       console.log(allMessagesObj);
-//       const objKeys = Object.keys(allMessagesObj);
+      const offFunction = onValue(allMessagesRef, function(snapshot) {
+      const allMessagesObj = snapshot.val();
+      console.log(allMessagesObj);
+      const objKeys = Object.keys(allMessagesObj);
       
-//       const objArray = objKeys.map((keyString) => {
-//         allMessagesObj[keyString].key = keyString;
-//         return allMessagesObj[keyString];
-//       })
+      const objArray = objKeys.map((keyString) => {
+        allMessagesObj[keyString].key = keyString;
+        return allMessagesObj[keyString];
+      })
       
-//      setChatMessages(objArray); //update state and re-render
+     setChatMessages(objArray); //update state and re-render
     
-//      function cleanup() {
-//       console.log("Component is being removed")
-//       offFunction();
-//      }
-//      return cleanup;
-//     })
-//   }, []);
+     function cleanup() {
+      console.log("Component is being removed")
+      offFunction();
+     }
+     return cleanup;
+    })
+  }, []);
 
 
-//   const addMessage = (messageText) => {
-//     const userObj = currentUser;
-//     const newMessageObj = {
-//       "userId": userObj.userId,
-//       "userName": userObj.userName,
-//       "userImg": userObj.userImg,
-//       "text": messageText,
-//       "timestamp": Date.now(),
-//       "channel": currentChannel
-//     } 
+  const addMessage = (messageText) => {
+    const userObj = currentUser;
+    const newMessageObj = {
+      "userId": userObj.userId,
+      "userName": userObj.userName,
+      "userImg": userObj.userImg,
+      "text": messageText,
+      "timestamp": Date.now(),
+      "channel": currentChannel
+    } 
 
-//     // const updateChatMessages = [...chatMessages, newMessage];
-//     // setChatMessages(updateChatMessages); //update state and re-render
-//     const db = getDatabase();
-//     const allMessagesRef = ref(db,"allMessages");
+    // const updateChatMessages = [...chatMessages, newMessage];
+    // setChatMessages(updateChatMessages); //update state and re-render
+    const db = getDatabase();
+    const allMessagesRef = ref(db,"allMessages");
 
-//     // firebaseSet(messageRef, newMessageObj);
-//     FirebasePush(allMessagesRef, newMessageObj);
+    // firebaseSet(messageRef, newMessageObj);
+    FirebasePush(allMessagesRef, newMessageObj);
 
-//   }
+  }
 
 
-//   return (
-//     <div className="row flex-grow-1">
-//       <div className="col-3">
-//         <ChannelList channels={channelList} currentChannel={currentChannel} />
-//       </div>
-//       <div className="col d-flex flex-column">
-//         <ChatPane chatMessages={chatMessages} currentChannel={currentChannel} />
-//         <ComposeForm currentUser={currentUser} addMessageCallback={addMessage} />
-//       </div>
-//     </div>
-//   )
+  return (
+    <div className="row flex-grow-1">
+      <div className="col-3">
+        <ChannelList channels={channelList} currentChannel={currentChannel} />
+      </div>
+      <div className="col d-flex flex-column">
+        <ChatPane chatMessages={chatMessages} currentChannel={currentChannel} />
+        <ComposeForm currentUser={currentUser} addMessageCallback={addMessage} />
+      </div>
+    </div>
+  )
 
-// }
+}
 
 
 
